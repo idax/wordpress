@@ -1,0 +1,124 @@
+/*
+Theme Name: Shop-isle Child
+Template: shop-isle
+*/
+
+.navbar-custom {
+    background-color: white;
+}
+
+.navbar-custom .nav li > a {
+    color: black;
+    font-size: 13px;
+}
+
+.navbar-cart-inner {
+    visibility: hidden;
+    display: none;
+}
+.navbar-cart {
+    width: unset !important;
+}
+
+.page .navbar-custom {
+    background-color: white !important;
+}
+
+.woocommerce-ordering {
+    display: none;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background: #111 !important;
+}
+.navbar-custom .sub-menu, .navbar-custom .children {
+    background: #ffffff !important;
+    
+}
+.navbar-custom .nav > li > a:focus,
+.navbar-custom .nav > li > a:hover,
+.navbar-custom .nav .open > a,
+.navbar-custom .nav .open > a:focus,
+.navbar-custom .nav .open > a:hover,
+.navbar-custom .sub-menu > li > a:focus,
+.navbar-custom .sub-menu > li > a:hover {
+	color: rgba(0, 0, 0, 0.5);
+	
+}
+
+.header-search-button:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.dropdownmenu {
+    color: #23282dbd;
+}
+
+.single-product .woocommerce-breadcrumb {
+   
+    margin-left: 130px;
+}
+.single-product .woocommerce-product-gallery .flex-control-thumbs {
+    margin-left: 130px !important;
+}
+
+/* Design banner*/
+.bg-grey {
+    background: #484848;
+}
+#designer {
+    margin-left: 70px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+body.single-product #sidebar {display:none !important;}
+
+body.single-product #main.col-left, .product-main-content {width:100% !important;}
+
+@media (max-width: 1370px){
+    .single-product .woocommerce-breadcrumb {
+   
+        margin-left: 70px;
+    }
+    .single-product .woocommerce-product-gallery .flex-control-thumbs {
+        margin-left: 70px !important;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .woocommerce ul.products li.product:nth-child(2n+1) {
+        clear: none !important; 
+        }
+    }
+    
+@media (max-width: 768px){
+    .single-product .woocommerce-breadcrumb {
+   
+        margin-left: 0px;
+    }
+    .navbar-header {
+        margin-right: 0;
+        padding-right: 0;
+        color: black;
+    }
+    .single-product .woocommerce-product-gallery .flex-control-thumbs {
+        text-align: center;
+        margin-left: 0px !important;
+    }
+    html .navbar-fixed-top .navbar-collapse {
+        background: rgba(255, 255, 255, 0.9) !important;
+    }
+}
+
+@media (max-width: 600px) {
+body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
+    max-height: unset !important;
+    margin-top: 0px;
+    }
+    #designer {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        
+    }
+}
