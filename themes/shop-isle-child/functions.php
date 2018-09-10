@@ -9,4 +9,5 @@ function wcc_change_breadcrumb_home_text($defaults) {
   $defaults['home'] = 'Home';
   return $defaults; 
 }
+/*Steven and Ida was here :)*/
 ?>
