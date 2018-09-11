@@ -71,6 +71,8 @@ Template: shop-isle
     margin-bottom: 70px;
 }
 
+
+
 body.single-product #sidebar {display:none !important;}
 
 body.single-product #main.col-left, .product-main-content {width:100% !important;}
@@ -121,4 +123,9 @@ body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
         margin-bottom: 0px;
         
     }
+}
+
+/* Design page */
+.elementor-40 .elementor-element.elementor-element-40a9468 .gallery-item .gallery-caption {
+    margin-bottom: 50px;
 }
