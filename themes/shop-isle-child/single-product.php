@@ -84,23 +84,88 @@ get_header( 'shop' ); ?>
 		<div class="col-sm-4">
 
 			<?php 
-			$posts = get_posts(array('posts_per_page' => -1, 'post_type' => 'post'));
-			if(!empty($posts)) {
-				foreach ($posts as $post) {
-					if (strcasecmp($product->description, $post->post_title) === 0) {
-					if (has_post_thumbnail( $post->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
+			
+			function get_string_between($string, $start, $end){
+				$string = ' ' . $string;
+				$ini = strpos($string, $start);
+				if ($ini == 0) return '';
+				$ini += strlen($start);
+				$len = strpos($string, $end, $ini) - $ini;
+				return substr($string, $ini, $len);
+			}
+
+			$designers = query_posts('post_type=f_designer');
+			$distributors = query_posts('post_type=f_distributor');
+			$manufacturers = query_posts('post_type=f_manufacturer');
+
+			$prod_designers = 	explode(',',get_string_between($product->description, '¤designers¤','¤/designers¤'));
+			$prod_distributors = 	explode(',',get_string_between($product->description, '¤distributors¤','¤/distributors¤'));
+			$prod_manufacturers =	explode(',',get_string_between($product->description, '¤manufacturers¤','¤/manufacturers¤'));
+
+			// DESIGNERS
+			if(!empty($designers) && !empty($prod_designers)) {
+				foreach ($designers as $designer) {
+					foreach($prod_designers as $prod_designer) {
+						if (strcasecmp($prod_designer, $designer->post_title) === 0) {
+						if (has_post_thumbnail( $designer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $designer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
 					
-			<p> <?php echo $post->post_content ?> </p>
+			<p> <?php echo $designer->post_content ?> </p>
 			<img id="designer" src= <?php echo $image[0] ?> >
 
 			<?php
+						}
 					}
 				}
 			} else {
 				echo 'no posts :(';
 			}
 			?>
+
+			<?php
+			//DISTRIBUTORS
+			if(!empty($distributors) && !empty($prod_distributors)) {
+				foreach ($distributors as $distributor) {
+					foreach($prod_distributors as $prod_distributor) {
+						if (strcasecmp($prod_distributor, $distributor->post_title) === 0) {
+						if (has_post_thumbnail( $distributor->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $distributor->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
+			?>
+					
+			<p> <?php echo $distributor->post_content ?> </p>
+			<img id="designer" src= <?php echo $image[0] ?> >
+
+			<?php
+						}
+					}
+				}
+			} else {
+				echo 'no posts :(';
+			}
+			?>
+
+			<?php
+			//MANUFACTURERS
+			if(!empty($manufacturers) && !empty($prod_manufacturers)) {
+				foreach ($manufacturers as $manufacturer) {
+					foreach($prod_manufacturers as $prod_manufacturer) {
+						if (strcasecmp($prod_manufacturer, $manufacturer->post_title) === 0) {
+						if (has_post_thumbnail( $manufacturer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $manufacturer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
+			?>
+					
+			<p> <?php echo $manufacturer->post_content ?> </p>
+			<img id="designer" src= <?php echo $image[0] ?> >
+
+			<?php
+						}
+					}
+				}
+			} else {
+				echo 'no posts :(';
+			}
+			?>
+
+
+
 
 		</div>
 	</div>
