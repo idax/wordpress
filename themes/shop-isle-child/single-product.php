@@ -79,7 +79,7 @@ get_header( 'shop' ); ?>
 
 
 
-<div class="container-fluid bg-grey">
+<div class="container-fluid bg-1">
 	<div class="row">
 		<div class="col-sm-4">
 
@@ -121,7 +121,14 @@ get_header( 'shop' ); ?>
 				echo 'no posts! :(';
 			}
 			?>
+		</div>
+	</div>
+</div>
 
+
+<div class="container-fluid bg-2">
+	<div class="row">
+		<div class="col-sm-4">
 			<?php
 			//DISTRIBUTORS
 			if(!empty($distributors) && !empty($prod_distributors)) {

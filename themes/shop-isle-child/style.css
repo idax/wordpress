@@ -62,8 +62,11 @@ Template: shop-isle
 }
 
 /* Design banner*/
-.bg-grey {
+.bg-1 {
     background: #484848;
+}
+.bg-2 {
+    background: red;
 }
 #designer {
     margin-left: 70px;
