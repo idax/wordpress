@@ -110,7 +110,7 @@ get_header( 'shop' ); ?>
 						if (has_post_thumbnail( $designer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $designer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
 			<img id="designer" src= <?php echo $image[0] ?> >		
-			<p> <?php echo $designer->post_content ?> </p>
+			<p class="> <?php echo $designer->post_content ?> </p>
 			
 
 			<?php
