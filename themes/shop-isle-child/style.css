@@ -52,11 +52,12 @@ Template: shop-isle
 .dropdownmenu {
     color: #23282dbd;
 }
-
+/* Breadcrumb (brødkrumme) */
 .single-product .woocommerce-breadcrumb {
    
     margin-left: 130px;
 }
+/*?*/
 .single-product .woocommerce-product-gallery .flex-control-thumbs {
     margin-left: 130px !important;
 }
@@ -66,12 +67,15 @@ Template: shop-isle
     background: #484848;
 }
 .bg-2 {
-    background: red;
+    background:white;
+}
+.bg-3{
+    background: #808080
 }
 #designer {
-    margin-left: 70px;
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-left: 108px;
+    margin-top: 95px;
+    margin-bottom: 95px;
 }
 
 

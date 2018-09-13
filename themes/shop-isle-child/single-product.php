@@ -81,7 +81,7 @@ get_header( 'shop' ); ?>
 
 <div class="container-fluid bg-1">
 	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-sm-8">
 
 			<?php 
 			
@@ -121,12 +121,39 @@ get_header( 'shop' ); ?>
 				echo 'no posts! :(';
 			}
 			?>
+			<div></div>
 		</div>
 	</div>
 </div>
 
-
 <div class="container-fluid bg-2">
+	<div class="row">
+		<div class="col-sm-4"
+			<?php
+			//MANUFACTURERS
+			if(!empty($manufacturers) && !empty($prod_manufacturers)) {
+				foreach ($manufacturers as $manufacturer) {
+					foreach($prod_manufacturers as $prod_manufacturer) {
+						if (strcasecmp($prod_manufacturer, $manufacturer->post_title) === 0) {
+						if (has_post_thumbnail( $manufacturer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $manufacturer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
+			?>
+					
+			<p> <?php echo $manufacturer->post_content ?> </p>
+			<img id="designer" src= <?php echo $image[0] ?> >
+
+			<?php
+						}
+					}
+				}
+			} else {
+				echo 'no posts :(';
+			}
+			?>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid bg-3">
 	<div class="row">
 		<div class="col-sm-4">
 			<?php
@@ -149,34 +176,12 @@ get_header( 'shop' ); ?>
 				echo 'no posts :(';
 			}
 			?>
-
-			<?php
-			//MANUFACTURERS
-			if(!empty($manufacturers) && !empty($prod_manufacturers)) {
-				foreach ($manufacturers as $manufacturer) {
-					foreach($prod_manufacturers as $prod_manufacturer) {
-						if (strcasecmp($prod_manufacturer, $manufacturer->post_title) === 0) {
-						if (has_post_thumbnail( $manufacturer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $manufacturer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
-			?>
-					
-			<p> <?php echo $manufacturer->post_content ?> </p>
-			<img id="designer" src= <?php echo $image[0] ?> >
-
-			<?php
-						}
-					}
-				}
-			} else {
-				echo 'no posts :(';
-			}
-			?>
-
-
-
-
 		</div>
 	</div>
 </div>
+
+
+
 
 
 
