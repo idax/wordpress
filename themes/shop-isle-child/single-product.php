@@ -81,7 +81,7 @@ get_header( 'shop' ); ?>
 
 <div class="container-fluid bg-1">
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-4">
 
 			<?php 
 			
@@ -109,9 +109,9 @@ get_header( 'shop' ); ?>
 						if (strcasecmp($prod_designer, $designer->post_title) === 0) {
 						if (has_post_thumbnail( $designer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $designer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
-					
+			<img id="designer" src= <?php echo $image[0] ?> >		
 			<p> <?php echo $designer->post_content ?> </p>
-			<img id="designer" src= <?php echo $image[0] ?> >
+			
 
 			<?php
 						}
@@ -139,7 +139,7 @@ get_header( 'shop' ); ?>
 			?>
 					
 			<p> <?php echo $manufacturer->post_content ?> </p>
-			<img id="designer" src= <?php echo $image[0] ?> >
+			<img id="manufacturer" src= <?php echo $image[0] ?> >
 
 			<?php
 						}
@@ -166,7 +166,7 @@ get_header( 'shop' ); ?>
 			?>
 					
 			<p> <?php echo $distributor->post_content ?> </p>
-			<img id="designer" src= <?php echo $image[0] ?> >
+			<img id="distributor" src= <?php echo $image[0] ?> >
 
 			<?php
 						}
