@@ -118,7 +118,7 @@ get_header( 'shop' ); ?>
 					}
 				}
 			} else {
-				echo 'no posts :(';
+				echo 'no posts! :(';
 			}
 			?>
 
