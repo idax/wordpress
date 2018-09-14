@@ -2,7 +2,9 @@
 Theme Name: Shop-isle Child
 Template: shop-isle
 */
-
+body{
+    font-family: font-family: 'Roboto', sans-serif;
+}
 .navbar-custom {
     background-color: white;
 }
@@ -66,6 +68,19 @@ Template: shop-isle
 .bg-1 {
     background: #484848;
 }
+#designer{
+    float: left;
+    margin-left: 108px;
+}
+#text-design{
+    padding-right: 200px;
+    padding-left: 250px;
+    margin-top: 60px;
+}
+#text-design h2, #text-design p{
+    color: #ffffff;    
+}
+
 .bg-2 {
     background:white;
 }
@@ -73,12 +88,11 @@ Template: shop-isle
     background: #808080
 }
 
-#designer, #manufacturer, #distributor {
+#manufacturer, #distributor {
     margin-left: 108px;
     margin-top: 95px;
     margin-bottom: 95px;
 }
-
 
 
 body.single-product #sidebar {display:none !important;}

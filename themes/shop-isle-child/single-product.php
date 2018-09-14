@@ -81,7 +81,7 @@ get_header( 'shop' ); ?>
 
 <div class="container-fluid bg-1">
 	<div class="row">
-		<div class="col-sm-4">
+		
 
 			<?php 
 			
@@ -109,9 +109,12 @@ get_header( 'shop' ); ?>
 						if (strcasecmp($prod_designer, $designer->post_title) === 0) {
 						if (has_post_thumbnail( $designer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $designer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
-			<img id="designer" src= <?php echo $image[0] ?> >		
-			<p class="> <?php echo $designer->post_content ?> </p>
-			
+			<div class="col-sm-4">
+			<img id="designer" src= <?php echo $image[0] ?> >	
+			</div>
+			<div class="col-sm-8" id="text-design">	
+			<p > <?php echo $designer->post_content ?> </p>
+			</div>
 
 			<?php
 						}
@@ -122,7 +125,7 @@ get_header( 'shop' ); ?>
 			}
 			?>
 			<div></div>
-		</div>
+		
 	</div>
 </div>
 
@@ -138,7 +141,7 @@ get_header( 'shop' ); ?>
 						if (has_post_thumbnail( $manufacturer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $manufacturer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
 					
-			<p> <?php echo $manufacturer->post_content ?> </p>
+			<p id="text-manufac"> <?php echo $manufacturer->post_content ?> </p>
 			<img id="manufacturer" src= <?php echo $image[0] ?> >
 
 			<?php
@@ -165,9 +168,9 @@ get_header( 'shop' ); ?>
 						if (has_post_thumbnail( $distributor->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $distributor->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
 					
-			<p> <?php echo $distributor->post_content ?> </p>
 			<img id="distributor" src= <?php echo $image[0] ?> >
-
+			<p id="text-distri"> <?php echo $distributor->post_content ?> </p>
+			
 			<?php
 						}
 					}
