@@ -131,7 +131,7 @@ get_header( 'shop' ); ?>
 
 <div class="container-fluid bg-2">
 	<div class="row">
-		<div class="col-sm-4"
+		<div class="col-sm-4">
 			<?php
 			//MANUFACTURERS
 			if(!empty($manufacturers) && !empty($prod_manufacturers)) {

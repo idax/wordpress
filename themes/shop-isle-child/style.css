@@ -3,7 +3,13 @@ Theme Name: Shop-isle Child
 Template: shop-isle
 */
 body{
-    font-family: font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    min-width: 100%;
+}
+.container{
+    padding-left: 0px;
+    padding-right: 0px;
+
 }
 .navbar-custom {
     background-color: white;
@@ -63,8 +69,9 @@ body{
 .single-product .woocommerce-product-gallery .flex-control-thumbs {
     margin-left: 130px !important;
 }
+/* Single product page banner */
 
-/* Design banner*/
+/* Design banner */
 .bg-1 {
     background: #484848;
 }
@@ -107,6 +114,17 @@ body.single-product #main.col-left, .product-main-content {width:100% !important
     .single-product .woocommerce-product-gallery .flex-control-thumbs {
         margin-left: 70px !important;
     }
+    #text-design{
+        margin-top: 40px;
+        padding-left: 200px;
+    }
+}
+@media (max-width: 1024px){
+    #text-design{
+        margin-top: 0px;
+        padding-right: 108px;
+        padding-left: 200px;
+    }
 }
 
 @media screen and (max-width: 992px){
@@ -132,6 +150,27 @@ body.single-product #main.col-left, .product-main-content {width:100% !important
     html .navbar-fixed-top .navbar-collapse {
         background: rgba(255, 255, 255, 0.9) !important;
     }
+    html body.admin-bar .navbar {
+        margin-top: 45px;
+    }
+    .navbar-color-on-scroll, .navbar-custom {
+        margin-top: 45px;
+        top: 0 !important;
+    }
+    .navbar-scroll-point {
+        top: 46;
+    }
+   /* Design banner */
+    #designer{
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+    #text-design{
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: 0px;
+    }
+    
 }
 
 @media (max-width: 600px) {
@@ -150,4 +189,10 @@ body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
 /* Design page */
 .elementor-40 .elementor-element.elementor-element-40a9468 .gallery-item .gallery-caption {
     margin-bottom: 50px;
+}
+
+html body.home .navbar-transparent {
+    background: rgba(255, 255, 255, 1) !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
