@@ -9,7 +9,10 @@ body{
 .container{
     padding-left: 0px;
     padding-right: 0px;
-
+}
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .navbar-custom {
     background-color: white;
@@ -75,21 +78,30 @@ body{
 .bg-1 {
     background: #484848;
 }
-#designer{
+#designer {
     float: left;
     margin-left: 108px;
 }
-#text-design{
+
+#text-design,  #text-distri{
     padding-right: 200px;
     padding-left: 250px;
     margin-top: 60px;
 }
-#text-design h2, #text-design p{
+#text-design p, #text-distri p{
     color: #ffffff;    
 }
-
+#text-manufac{
+    float: left;
+    padding-left: 125px;
+    padding-top: 60px;
+    padding-right: 325px;
+}
 .bg-2 {
     background:white;
+}
+#distributor{
+    float: left;
 }
 .bg-3{
     background: #808080

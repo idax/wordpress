@@ -110,10 +110,10 @@ get_header( 'shop' ); ?>
 						if (has_post_thumbnail( $designer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $designer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
 			<div class="col-sm-4">
-			<img id="designer" src= <?php echo $image[0] ?> >	
+				<img id="designer" src= <?php echo $image[0] ?> >	
 			</div>
 			<div class="col-sm-8" id="text-design">	
-			<p > <?php echo $designer->post_content ?> </p>
+				<p > <?php echo $designer->post_content ?> </p>
 			</div>
 
 			<?php
@@ -131,7 +131,6 @@ get_header( 'shop' ); ?>
 
 <div class="container-fluid bg-2">
 	<div class="row">
-		<div class="col-sm-4">
 			<?php
 			//MANUFACTURERS
 			if(!empty($manufacturers) && !empty($prod_manufacturers)) {
@@ -140,9 +139,12 @@ get_header( 'shop' ); ?>
 						if (strcasecmp($prod_manufacturer, $manufacturer->post_title) === 0) {
 						if (has_post_thumbnail( $manufacturer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $manufacturer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
-					
-			<p id="text-manufac"> <?php echo $manufacturer->post_content ?> </p>
-			<img id="manufacturer" src= <?php echo $image[0] ?> >
+			<div class="col-sm-8" id="text-manufac">			
+				<p> <?php echo $manufacturer->post_content ?> </p>
+			</div>
+			<div class="col-sm-4">
+				<img id="manufacturer" src= <?php echo $image[0] ?> >
+			</div>
 
 			<?php
 						}
@@ -152,13 +154,11 @@ get_header( 'shop' ); ?>
 				echo 'no posts :(';
 			}
 			?>
-		</div>
 	</div>
 </div>
 
 <div class="container-fluid bg-3">
-	<div class="row">
-		<div class="col-sm-4">
+	<div class="row">		
 			<?php
 			//DISTRIBUTORS
 			if(!empty($distributors) && !empty($prod_distributors)) {
@@ -167,9 +167,12 @@ get_header( 'shop' ); ?>
 						if (strcasecmp($prod_distributor, $distributor->post_title) === 0) {
 						if (has_post_thumbnail( $distributor->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $distributor->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
 			?>
-					
-			<img id="distributor" src= <?php echo $image[0] ?> >
-			<p id="text-distri"> <?php echo $distributor->post_content ?> </p>
+			<div class="col-sm-4">		
+				<img id="distributor" src= <?php echo $image[0] ?> >
+			</div>
+			<div class="col-sm-8" id="text-distri">
+				<p> <?php echo $distributor->post_content ?> </p>
+			</div>
 			
 			<?php
 						}
@@ -179,7 +182,6 @@ get_header( 'shop' ); ?>
 				echo 'no posts :(';
 			}
 			?>
-		</div>
 	</div>
 </div>
 
