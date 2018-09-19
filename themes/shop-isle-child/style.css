@@ -5,6 +5,7 @@ Template: shop-isle
 body{
     font-family: 'Roboto', sans-serif;
     min-width: 100%;
+    font-size: 14px;
 }
 .container{
     padding-left: 0px;
@@ -14,6 +15,9 @@ body{
     padding-left: 0px;
     padding-right: 0px;
 }
+.custom-logo {
+    min-width: 250px;
+}
 /* Navbar*/
 .navbar-custom {
     background-color: white;
@@ -21,7 +25,7 @@ body{
 
 .navbar-custom .nav li > a {
     color: black;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .navbar-cart-inner {
@@ -64,30 +68,37 @@ body{
 .dropdownmenu {
     color: #23282dbd;
 }
+/* Design banner*/
 
-/* Breadcrumb (brødkrumme) */
-.single-product .woocommerce-breadcrumb {
-   
-    margin-left: 130px;
+.banner, .bottom-page-wrap{
+    border-top: 1px solid #eaeaea;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
-
-/* Single product page image */
-.single-product div.product .images img {
-    width: 50% !important;
+#text-design,  #text-distri{
+    padding-left: 150px;
 }
-.single-product div.product .images {
+#text-manufac{
+    padding-right: 150px;
+}
+/* Footer */
+.bg-dark{
+    background-color: #ffffff !important;
+    color: #111;
+}
+.divider-d {
+    border-top: 1px solid #eaeaea;
+}
+/*.single-product div.product .images {
     text-align: center;
 }
 .single-product div.product .summary {
     padding-right: 108px !important;
 }
-
-
+ */
 /* Single product page banner */
-.bg-1 {
-    background: #484848;
-}
-#designer {
+
+/*#designer {
     float: left;
     margin-left: 108px;
 }
@@ -97,25 +108,17 @@ body{
     padding-left: 250px;
     margin-top: 60px;
 }
-#text-design p, #text-distri p{
-    color: #ffffff;    
-}
+
 #text-manufac{
     float: left;
     padding-left: 125px;
     padding-top: 60px;
     padding-right: 325px;
 }
-.bg-2 {
-    background:white;
-}
+
 #distributor{
     float: left;
 }
-.bg-3{
-    background: #636363
-}
-
 #manufacturer, #distributor {
     margin-left: 108px;
     margin-top: 95px;
@@ -125,7 +128,7 @@ body{
 
 body.single-product #sidebar {display:none !important;}
 
-body.single-product #main.col-left, .product-main-content {width:100% !important;}
+/*body.single-product #main.col-left, .product-main-content {width:100% !important;}
 
 @media (max-width: 1370px){
     .single-product .woocommerce-breadcrumb {
@@ -182,15 +185,7 @@ body.single-product #main.col-left, .product-main-content {width:100% !important
         top: 46;
     }
    /* Design banner */
-    #designer{
-        margin-left: 0px;
-        margin-top: 15px;
-    }
-    #text-design{
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-top: 0px;
-    }
+   
     
 }
 
@@ -217,3 +212,9 @@ html body.home .navbar-transparent {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.center-with-flex {
+    display: flex;
+    align-items: center;
+}
+

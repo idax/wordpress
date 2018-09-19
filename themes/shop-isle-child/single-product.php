@@ -79,8 +79,8 @@ get_header( 'shop' ); ?>
 
 
 
-<div class="container-fluid bg-1">
-	<div class="row">
+<div class="container-fluid banner">
+	<div class="row center-with-flex">
 		
 
 			<?php 
@@ -129,8 +129,8 @@ get_header( 'shop' ); ?>
 	</div>
 </div>
 
-<div class="container-fluid bg-2">
-	<div class="row">
+<div class="container-fluid banner">
+	<div class="row center-with-flex" >
 			<?php
 			//MANUFACTURERS
 			if(!empty($manufacturers) && !empty($prod_manufacturers)) {
@@ -157,8 +157,8 @@ get_header( 'shop' ); ?>
 	</div>
 </div>
 
-<div class="container-fluid bg-3">
-	<div class="row">		
+<div class="container-fluid banner">
+	<div class="row center-with-flex">		
 			<?php
 			//DISTRIBUTORS
 			if(!empty($distributors) && !empty($prod_distributors)) {
