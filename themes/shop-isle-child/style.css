@@ -81,6 +81,10 @@ body{
 #text-manufac{
     padding-right: 150px;
 }
+.center-with-flex {
+    display: flex;
+    align-items: center;
+}
 /* Footer */
 .bg-dark{
     background-color: #ffffff !important;
@@ -213,8 +217,5 @@ html body.home .navbar-transparent {
     padding-bottom: 10px;
 }
 
-.center-with-flex {
-    display: flex;
-    align-items: center;
-}
+
 
