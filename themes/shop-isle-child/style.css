@@ -189,9 +189,8 @@ body.single-product #sidebar {display:none !important;}
         top: 46;
     }
    /* Design banner */
-   
-    
-}
+   /*    
+}*/
 
 @media (max-width: 600px) {
 body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
