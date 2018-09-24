@@ -126,7 +126,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 }
 #mc_embed_signup .button{
     border-radius: 0px !important;
-    background-color: black !important;
+    background-color: #82a0ab !important;
     font-size: 18px !important;
 }
 html .required {
@@ -135,11 +135,6 @@ html .required {
 #mc_embed_signup form{
     padding: 0px !important;
 }
-/*virker ikke
-.bg-dark a :hover{
-    color: #82a0ab !important; 
-}*/
-
 .divider-d {
     border-top: 1px solid #eaeaea;
 }
