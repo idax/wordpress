@@ -13,6 +13,7 @@ get_header(); ?>
 	<div class="main">
 
 	<!-- Header section start -->
+	
 <?php
 
 $page_for_posts_id = get_option( 'page_for_posts' );

@@ -77,113 +77,82 @@ get_header( 'shop' ); ?>
 
 		<?php endwhile; // end of the loop. ?>
 
+<?php 
+function get_string_between($string, $start, $end){
+	$string = ' ' . $string;
+	$ini = strpos($string, $start);
+	if ($ini == 0) return '';
+	$ini += strlen($start);
+	$len = strpos($string, $end, $ini) - $ini;
+	return substr($string, $ini, $len);
+}
+
+function print_post_image($imageCssId, $image) {
+	?>
+	<div class="col-sm-4">
+		<img id="<?php echo $imageCssId ?>" src= <?php echo $image ?> >	
+	</div>
+	<?php
+}
+function print_post_text($textCssId, $banner_post, $displayReadMore) {
+	?>
+	<div class="col-sm-8" id="<?php echo $textCssId ?>">	
+		<p > <?php echo get_string_between($banner_post->post_content, "#TEASER START#", "#TEASER END#") ?> </p>
+		<?php if($displayReadMore == true) { ?> <button class="btn read-more" type="button" onclick="window.location.href='<?php echo get_post_permalink($banner_post->ID) ?>'">READ MORE</button>  <?php } ?>
+	</div>
+	<?php
+}
 
 
-<div class="container-fluid banner">
-	<div class="row center-with-flex">
-		
+function banner_printer($post_type_name, $delimiter1, $delimiter2, $imageCssId, $textCssId, $imageFirst, $displayReadMore, $product) {
 
-			<?php 
+	 $banner_posts = query_posts('post_type='.$post_type_name);
+	 $banner_category_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2));
+	 ?>
+	 <div class="container-fluid banner">
+		<div class="row center-with-flex" >
+				<?php
+
+				if(!empty($banner_posts) && !empty($banner_category_names)) {
+					foreach ($banner_posts as $banner_post) {
+						foreach($banner_category_names as $banner_category_name) {
+							if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) {
+							if (has_post_thumbnail( $banner_post->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $banner_post->ID ), 'single-post-thumbnail' )[0]; } else { $image = ['no image :c']; }
+				?>
+				<div id="posts-wrapper">
+				<?php
+					if($imageFirst) {
+					print_post_image($imageCssId, $image);
+					print_post_text($textCssId, $banner_post, $displayReadMore);
+					} else {
+					print_post_text($textCssId, $banner_post, $displayReadMore);
+					print_post_image($imageCssId, $image);
+					}
+				?>
+				</div>
+				<?php
+							}
+						}
+					}
+				} else {
+					echo 'no results :(';
+				}
+				?>
+				<div></div>
 			
-			function get_string_between($string, $start, $end){
-				$string = ' ' . $string;
-				$ini = strpos($string, $start);
-				if ($ini == 0) return '';
-				$ini += strlen($start);
-				$len = strpos($string, $end, $ini) - $ini;
-				return substr($string, $ini, $len);
-			}
-
-			$designers = query_posts('post_type=f_designer');
-			$distributors = query_posts('post_type=f_distributor');
-			$manufacturers = query_posts('post_type=f_manufacturer');
-
-			$prod_designers = 	explode(',',get_string_between($product->description, '¤designers¤','¤/designers¤'));
-			$prod_distributors = 	explode(',',get_string_between($product->description, '¤distributors¤','¤/distributors¤'));
-			$prod_manufacturers =	explode(',',get_string_between($product->description, '¤manufacturers¤','¤/manufacturers¤'));
-
-			// DESIGNERS
-			if(!empty($designers) && !empty($prod_designers)) {
-				foreach ($designers as $designer) {
-					foreach($prod_designers as $prod_designer) {
-						if (strcasecmp($prod_designer, $designer->post_title) === 0) {
-						if (has_post_thumbnail( $designer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $designer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
-			?>
-			<div class="col-sm-4">
-				<img id="designer" src= <?php echo $image[0] ?> >	
-			</div>
-			<div class="col-sm-8" id="text-design">	
-				<p > <?php echo $designer->post_content ?> </p>
-			</div>
-
-			<?php
-						}
-					}
-				}
-			} else {
-				echo 'no posts! :(';
-			}
-			?>
-			<div></div>
-		
+		</div>
 	</div>
-</div>
+	<?php
+}
 
-<div class="container-fluid banner">
-	<div class="row center-with-flex" >
-			<?php
-			//MANUFACTURERS
-			if(!empty($manufacturers) && !empty($prod_manufacturers)) {
-				foreach ($manufacturers as $manufacturer) {
-					foreach($prod_manufacturers as $prod_manufacturer) {
-						if (strcasecmp($prod_manufacturer, $manufacturer->post_title) === 0) {
-						if (has_post_thumbnail( $manufacturer->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $manufacturer->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
-			?>
-			<div class="col-sm-8" id="text-manufac">			
-				<p> <?php echo $manufacturer->post_content ?> </p>
-			</div>
-			<div class="col-sm-4">
-				<img id="manufacturer" src= <?php echo $image[0] ?> >
-			</div>
 
-			<?php
-						}
-					}
-				}
-			} else {
-				echo 'no posts :(';
-			}
-			?>
-	</div>
-</div>
+banner_printer("f_size_image", 		"¤sizes¤", 			"¤/sizes¤", 		"size-images", 	"text-size-images", false, 	false,	$product);
+banner_printer("f_designer", 		"¤designers¤", 		"¤/designers¤", 	"designer", 	"text-design", 		true, 	true,	$product);
+banner_printer("f_manufacturer", 	"¤manufacturers¤", 	"¤/manufacturers¤", "manufacturer", "text-manufac", 	false, 	true, 	$product);
+banner_printer("f_distributor", 	"¤distributors¤", 	"¤/distributors¤", 	"distributor", 	"text-distri", 		true, 	true, 	$product);
 
-<div class="container-fluid banner">
-	<div class="row center-with-flex">		
-			<?php
-			//DISTRIBUTORS
-			if(!empty($distributors) && !empty($prod_distributors)) {
-				foreach ($distributors as $distributor) {
-					foreach($prod_distributors as $prod_distributor) {
-						if (strcasecmp($prod_distributor, $distributor->post_title) === 0) {
-						if (has_post_thumbnail( $distributor->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $distributor->ID ), 'single-post-thumbnail' ); } else { $image = ['no image :c']; }
-			?>
-			<div class="col-sm-4">		
-				<img id="distributor" src= <?php echo $image[0] ?> >
-			</div>
-			<div class="col-sm-8" id="text-distri">
-				<p> <?php echo $distributor->post_content ?> </p>
-			</div>
-			
-			<?php
-						}
-					}
-				}
-			} else {
-				echo 'no posts :(';
-			}
-			?>
-	</div>
-</div>
+
+?>
 
 
 
