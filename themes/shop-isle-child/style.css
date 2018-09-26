@@ -129,6 +129,11 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
     border-radius: 0px !important;
     background-color: #82a0ab !important;
     font-size: 18px !important;
+    border: 1px solid #82a0ab !important;
+}
+#mc_embed_signup .button:hover{
+    background-color: white !important;
+    color: #82a0ab;
 }
 html .required {
     border-bottom: 1px darkgray solid !important;

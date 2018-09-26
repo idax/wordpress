@@ -15,14 +15,7 @@ function wcc_change_breadcrumb_home_text($defaults) {
 }
 
 
-add_action( 'shop_isle_footer', 'add_newsletter_signup_in_footer', 20 );
 
-function add_newsletter_signup_in_footer() {
-  ?>
-
-
-  <?php
-}
 
 /*Steven and Ida was here :)*/
 ?>
