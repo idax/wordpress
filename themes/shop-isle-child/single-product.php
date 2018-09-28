@@ -187,7 +187,7 @@ function sketch_banner_printer($post_type_name, $delimiter1, $delimiter2, $displ
 						foreach($extra_images as $extra_image) {
 							if($image_counter == 0) echo '<div id="sketch-posts-wrapper">';
 							if($image != null) { echo '<div class="col-sm-4" id="sketches">	
-															<img style="height: 330px; width: 330px;" src='.$image.'>
+															<img src='.$image.'>
 														</div>';
 														$image = null; 
 														$image_counter++;
@@ -195,7 +195,7 @@ function sketch_banner_printer($post_type_name, $delimiter1, $delimiter2, $displ
 							?>
 
 							<div class="col-sm-4" id="sketches">	
-								<img style="height: 330px; width: 330px;" src=<?php echo $extra_image ?>>
+								<img src=<?php echo $extra_image ?>>
 							</div>
 							
 							<?php
