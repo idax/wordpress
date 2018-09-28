@@ -1,6 +1,7 @@
 /*
 Theme Name: Shop-isle Child
 Template: shop-isle
+Text Domain: shop-isle-child
 */
 body{
     font-family: 'Roboto', sans-serif;
@@ -97,6 +98,15 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 }
 
 #posts-wrapper {
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#sketch-posts-wrapper {
     display: flex;
     flex-direction: row;
     vertical-align: middle;
