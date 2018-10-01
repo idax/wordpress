@@ -95,6 +95,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 #posts-wrapper {
@@ -126,6 +127,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
     color: #000000;
 
 }
+
 
 /* Footer */
 .bg-dark{

@@ -106,17 +106,17 @@ function getMultiplePictures($the_post) {
 	if (class_exists('MultiPostThumbnails') && get_post_type( $the_post->ID ) == 'f_sketches') {
 		$imageExists = true;
 		$counter = 0;
-		$images_array = array();
+		$images_id_array = array();
 		while($imageExists) {
 			$multi_image = MultiPostThumbnails::get_post_thumbnail_id(get_post_type( $the_post->ID ), 'multi_image_'.$counter, $the_post->ID);
 			if($multi_image != null) {
-				array_push($images_array, wp_get_attachment_image_src($multi_image, 'single-post-thumbnail')[0]);
+				array_push($images_id_array, $multi_image);
 				$counter++;
 			} else {
 				$imageExists = false;
 			}
 		}
-		return $images_array;
+		return $images_id_array;
 	} else {
 		return array();
 	}
@@ -177,16 +177,19 @@ function sketch_banner_printer($post_type_name, $delimiter1, $delimiter2, $displ
 				   foreach ($banner_posts as $banner_post) {
 					   foreach($banner_category_names as $banner_category_name) {
 						   if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) {
-							   $extra_images = getMultiplePictures($banner_post);
-							   if (has_post_thumbnail( $banner_post->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $banner_post->ID ), 'single-post-thumbnail' )[0]; } else { $image = ['no image :c']; }
+							   $extra_images_ids = getMultiplePictures($banner_post);
+							   if (has_post_thumbnail( $banner_post->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $banner_post->ID ), 'single-post-thumbnail' )[0]; $image_desc = get_post(get_post_thumbnail_id( $banner_post->ID ))->post_content; } else { $image = ['no image :c']; }
 			   ?>
 
 			   <?php 
-				   	if(!empty($extra_images)) {
+				   	if(!empty($extra_images_ids)) {
 						$image_counter = 0;
-						foreach($extra_images as $extra_image) {
+						foreach($extra_images_ids as $extra_image_id) {
+							$extra_image = wp_get_attachment_image_src($extra_image_id, 'single-post-thumbnail')[0];
+							$extra_image_desc = get_post($extra_image_id)->post_content;
 							if($image_counter == 0) echo '<div id="sketch-posts-wrapper">';
 							if($image != null) { echo '<div class="col-sm-4" id="sketches">	
+															<p>'.$image_desc.'</p>
 															<img src='.$image.'>
 														</div>';
 														$image = null; 
@@ -194,7 +197,8 @@ function sketch_banner_printer($post_type_name, $delimiter1, $delimiter2, $displ
 													}
 							?>
 
-							<div class="col-sm-4" id="sketches">	
+							<div class="col-sm-4" id="sketches">
+							<?php echo '<p>'.$extra_image_desc.'</p>' ?>	
 								<img src=<?php echo $extra_image ?>>
 							</div>
 							
@@ -226,7 +230,6 @@ function sketch_banner_printer($post_type_name, $delimiter1, $delimiter2, $displ
 
 
 sketch_banner_printer("f_sketches", "¤sketches¤", "¤/sketches¤", false, $product);
-banner_printer("f_sketches", 		"¤sketches¤", 			"¤/sketches¤", 		"sketches", 	"text-sketches", false, 	false,	$product);
 banner_printer("f_designer", 		"¤designers¤", 		"¤/designers¤", 	"designer", 	"text-design", 		true, 	true,	$product);
 banner_printer("f_manufacturer", 	"¤manufacturers¤", 	"¤/manufacturers¤", "manufacturer", "text-manufac", 	false, 	true, 	$product);
 banner_printer("f_distributor", 	"¤distributors¤", 	"¤/distributors¤", 	"distributor", 	"text-distri", 		true, 	true, 	$product);
