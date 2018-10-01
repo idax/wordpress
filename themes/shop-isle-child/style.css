@@ -113,6 +113,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
     align-items: center;
     width: 100%;
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .read-more{
