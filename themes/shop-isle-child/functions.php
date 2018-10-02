@@ -39,6 +39,43 @@ function addImageField($fieldID, $fieldName, $themeTextDomain, $post_type) {
  }
 }
 
+function shop_isle_footer_copyright_and_socials() {
+	?>
+	<!-- Footer start -->
+	<footer class="footer bg-dark">
+		<!-- Divider -->
+		<hr class="divider-d">
+		<!-- Divider -->
+		<div class="container">
+
+			<div class="row">
+
+				<?php
+				/* Copyright */
+				$shop_isle_copyright = apply_filters( 'shop_isle_footer_copyright_filter', get_theme_mod( 'shop_isle_copyright' ) );
+				echo '<div class="col-sm-6">';
+				if ( ! empty( $shop_isle_copyright ) ) :
+					echo '<p class="copyright font-alt">' . $shop_isle_copyright . '</p>';
+					endif;
+
+					$shop_isle_site_info_hide = apply_filters( 'shop_isle_footer_socials_filter', get_theme_mod( 'shop_isle_site_info_hide' ) );
+				if ( isset( $shop_isle_site_info_hide ) && $shop_isle_site_info_hide != 1 ) {
+					echo apply_filters( 'shop_isle_site_info', '' );
+				}
+				echo '</div>';
+
+				/* Socials icons */
+				echo '<div class="col-sm-6">';
+				shop_isle_footer_display_socials();
+				echo '</div>';
+				?>
+			</div><!-- .row -->
+
+		</div>
+	</footer>
+	<!-- Footer end -->
+	<?php
+}
 /*Steven and Ida was here :)*/
 ?>
 
