@@ -16,10 +16,17 @@ function wcc_change_breadcrumb_home_text($defaults) {
 
 $EXTRA_IMAGES_AMOUNT = 10;
 
+//For loop som kalder addImageField 10 gange. Vi giver hvert billede samme navn, med forskellig nummer til sidst, så vi let kan få fat på dem alle igen. (Altså 'multi_image_' + tal).
 for($i = 0; $i < $EXTRA_IMAGES_AMOUNT; $i++) {
   addImageField('multi_image_'.$i, 'Image'.$i, 'shop-isle', 'f_sketches');
 }
 
+
+//Denne function tilføjer et "Image" felt på en post type. 
+// - $fieldID : Det plugin som gør det muligt at tilføje flere billeder på en post, kræver at du giver de nye billedefelter et id, så vi kan få fat på billede vha. deres funktion 'get_post_thumbnail_id($id)'
+// - $fieldName : Navnet på billedefeltet'
+// - $themeTextDomain : Navn på dit theme, eller parent theme
+// - $post_type : den post_type som skal have det nye billedefelt.
 function addImageField($fieldID, $fieldName, $themeTextDomain, $post_type) {
   if (class_exists('MultiPostThumbnails')) {
   new MultiPostThumbnails(

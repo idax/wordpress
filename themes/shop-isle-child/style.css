@@ -17,7 +17,7 @@ body{
     padding-right: 0px;
 }
 .custom-logo {
-    min-width: 300px;
+    width: 80%;
 }
 /* Navbar*/
 .navbar-custom {
@@ -78,10 +78,15 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 .dropdownmenu {
     color: #23282dbd;
 }
+/*product beskrivelse*/
+.summary {
+    border-top: 0.2px solid;
+    padding-top: 50px !important;
+}
 /*Banner*/
 
 .banner, .bottom-page-wrap{
-    border-top: 1px solid #8a8a8a;
+    border-top: 0.2px solid #8a8a8a;
     padding-top: 40px;
     padding-bottom: 40px;
 }
@@ -117,14 +122,14 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 }
 
 .read-more{
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #fff;
+    color: #000;
     font-size: 18px;
     border: 1px solid #000000;
 }
 .read-more:hover{
-    background-color: white;
-    color: #000000;
+    background-color: black;
+    color: white;
 
 }
 

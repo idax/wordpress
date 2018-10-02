@@ -102,13 +102,16 @@ function print_post_text($textCssId, $banner_post, $displayReadMore) {
 	</div>
 	<?php
 }
+
+//Denne funktion returnerer et array med alle de extra images som findes på en post.
+
 function getMultiplePictures($the_post) {
 	if (class_exists('MultiPostThumbnails') && get_post_type( $the_post->ID ) == 'f_sketches') {
-		$imageExists = true;
-		$counter = 0;
+		$imageExists = true; 	//Vi bruger en boolean til at stoppe vores while loop når der findes et billedefelt uden et billede.
+		$counter = 0;			
 		$images_id_array = array();
 		while($imageExists) {
-			$multi_image = MultiPostThumbnails::get_post_thumbnail_id(get_post_type( $the_post->ID ), 'multi_image_'.$counter, $the_post->ID);
+			$multi_image = MultiPostThumbnails::get_post_thumbnail_id(get_post_type( $the_post->ID ), 'multi_image_'.$counter, $the_post->ID); //get_post_thumbnail_id($post_type, $multi_image_id, $post_id)
 			if($multi_image != null) {
 				array_push($images_id_array, $multi_image);
 				$counter++;
@@ -178,7 +181,6 @@ function sketch_banner_printer($post_type_name, $delimiter1, $delimiter2, $displ
 					   foreach($banner_category_names as $banner_category_name) {
 						   if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) {
 							   $extra_images_ids = getMultiplePictures($banner_post);
-							   if (has_post_thumbnail( $banner_post->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $banner_post->ID ), 'single-post-thumbnail' )[0]; $image_desc = get_post(get_post_thumbnail_id( $banner_post->ID ))->post_content; } else { $image = ['no image :c']; }
 			   ?>
 
 			   <?php 
@@ -188,17 +190,10 @@ function sketch_banner_printer($post_type_name, $delimiter1, $delimiter2, $displ
 							$extra_image = wp_get_attachment_image_src($extra_image_id, 'single-post-thumbnail')[0];
 							$extra_image_desc = get_post($extra_image_id)->post_content;
 							if($image_counter == 0) echo '<div id="sketch-posts-wrapper">';
-							if($image != null) { echo '<div class="col-sm-4" id="sketches">	
-															<p>'.$image_desc.'</p>
-															<img src='.$image.'>
-														</div>';
-														$image = null; 
-														$image_counter++;
-													}
 							?>
 
 							<div class="col-sm-4" id="sketches">
-							<?php echo '<p>'.$extra_image_desc.'</p>' ?>	
+								<p><?php echo $extra_image_desc ?> </p>
 								<img src=<?php echo $extra_image ?>>
 							</div>
 							
