@@ -61,9 +61,22 @@ body{
 	color: rgba(0, 0, 0, 0.5);
 	
 }
-
 .header-search-button:hover {
     color: rgba(0, 0, 0, 0.5);
+}
+/*dropdown arrow*/
+.navbar-custom li.has_children > .dropdownmenu:before{
+    font-size: 14px;
+}
+
+
+/*scroll up arrow*/
+.arrow_carrot-2up:before{
+    font-size: 30px;
+}
+.scroll-up{
+    bottom: 20px;
+    right: 20px;
 }
 
 /* product page */
