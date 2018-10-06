@@ -6,7 +6,7 @@ Text Domain: shop-isle-child
 body{
     font-family: 'Roboto', sans-serif;
     min-width: 100%;
-    font-size: 18px;
+    font-size: 16px;
 }
 .container{
     padding-left: 0px;
@@ -17,7 +17,7 @@ body{
     padding-right: 0px;
 }
 .custom-logo {
-    width: 80%;
+    width: 70%;
 }
 /* Navbar*/
 .navbar-custom {
@@ -26,7 +26,7 @@ body{
 
 .navbar-custom .nav li > a {
     color: black;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .navbar-cart-inner {
@@ -64,11 +64,17 @@ body{
 .header-search-button:hover {
     color: rgba(0, 0, 0, 0.5);
 }
+.dropdownmenu {
+    color: #23282dbd;
+}
 /*dropdown arrow*/
 .navbar-custom li.has_children > .dropdownmenu:before{
     font-size: 14px;
 }
-
+/*icons*/
+.fab, .fas {
+    color: #82a0ab;
+}
 
 /*scroll up arrow*/
 .arrow_carrot-2up:before{
@@ -81,21 +87,15 @@ body{
 
 /* product page */
 ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .product-button-wrap .add_to_cart_button, .product .product-button-wrap .button.product_type_external, ul.products li.product .product-button-wrap .button.product_type_simple, ul.products li.product .product-button-wrap .button.product_type_grouped, ul.products li.product .product-button-wrap .button.product_type_external, .shop-item .product-button-wrap .add_to_cart_button, .shop-item .product-button-wrap .button.product_type_external, .shop-item .product-button-wrap .button.product_type_grouped, .shop-item .product-button-wrap .button.product_type_variable, ul.products li.product .product-button-wrap .product_type_variable {
-    font-size: 18px !important;
-
-}
-.woocommerce-breadcrumb, .widget .widget-title {
-    font-size: 18px !important;
+    font-size: 16px !important;
 }
 
-.dropdownmenu {
-    color: #23282dbd;
-}
 /*product beskrivelse*/
 .summary {
     border-top: 0.2px solid;
     padding-top: 50px !important;
 }
+
 /*Banner*/
 
 .banner, .bottom-page-wrap{
@@ -125,6 +125,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
     margin-top: 50px;
 }
 
+
 #sketch-posts-wrapper {
     display: flex;
     flex-direction: row;
@@ -138,7 +139,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 .read-more{
     background-color: #fff;
     color: #000;
-    font-size: 18px;
+    font-size: 16px;
     border: 1px solid #000000;
 }
 .read-more:hover{
@@ -159,7 +160,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 #mc_embed_signup .button{
     border-radius: 0px !important;
     background-color: #82a0ab !important;
-    font-size: 18px !important;
+    font-size: 16px !important;
     border: 1px solid #82a0ab !important;
 }
 #mc_embed_signup .button:hover{
@@ -212,3 +213,4 @@ html body.home .navbar-transparent {
 .home .main #home {
     height: 100px !important;
 }
+
