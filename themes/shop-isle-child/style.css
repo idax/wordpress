@@ -226,6 +226,6 @@ html body.home .navbar-transparent {
     display: flex;
     align-items: center;
     vertical-align: middle;
-
+    border: solid rgba(0, 0, 0, 0.1) 1px;
     padding: 2em;
 }

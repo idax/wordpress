@@ -90,7 +90,7 @@ get_header(); ?>
 						<div <?php if($is_designer) echo 'style="flex-direction: column;"' ?>>
 							<img src= <?php echo $image_url; ?>>
 
-							 <?php if($is_designer) { echo '<p> $image_title </p>'; } ?>
+							 <?php if($post_type == 'f_designer') { echo '<p>'.$image_title.'</p>'; } ?>
 					  	</div>
 					
 						  <?php
