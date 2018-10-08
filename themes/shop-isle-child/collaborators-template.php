@@ -73,26 +73,29 @@ get_header(); ?>
 
 
 					$post_type = 'f_'.basename(get_permalink());
+					$is_designer = ($post_type == 'f_designer');
 					$posts = get_posts([
 						'post_type' => $post_type,
 						'post_status' => 'publish',
 						'numberposts' => -1,
 						'order'    => 'ASC'
 					  ]);
+					  echo '<div class="col-sm-12 collaborators-grid">';
 					  foreach($posts as $a_post) {
 						  $image = get_post(get_post_thumbnail_id($a_post));
 						  $image_url = $image->guid;
 						  $image_title = $image->post_title;
 						?>
-
-						<div class="col-sm-3">
+					
+						<div <?php if($is_designer) echo 'style="flex-direction: column;"' ?>>
 							<img src= <?php echo $image_url; ?>>
 
-							<p> <?php if($post_type == 'f_designer') { echo $image_title;} ?> </p>
+							 <?php if($is_designer) { echo '<p> $image_title </p>'; } ?>
 					  	</div>
-
+					
 						  <?php
 					  };
+					  echo '</div>'
 
 
 

@@ -214,3 +214,18 @@ html body.home .navbar-transparent {
     height: 100px !important;
 }
 
+
+.collaborators-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2em;
+    row-gap: 2em;
+    grid-auto-rows: 1fr
+}
+.collaborators-grid > div {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+
+    padding: 2em;
+}
