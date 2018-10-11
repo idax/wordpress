@@ -66,7 +66,7 @@ get_header(); ?>
 					 *
 					 * @hooked woocommerce_breadcrumb - 10
 					 */
-					do_action( 'shop_isle_content_top' );
+					//do_action( 'shop_isle_content_top' );
 
 
 
