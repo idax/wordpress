@@ -61,6 +61,14 @@ body{
 	color: rgba(0, 0, 0, 0.5);
 	
 }
+
+/*logo*/
+.shop-isle-header-title-inner{
+    text-align: left;
+}
+
+
+
 .header-search-button:hover {
     color: rgba(0, 0, 0, 0.5);
 }
