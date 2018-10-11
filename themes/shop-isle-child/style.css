@@ -66,12 +66,21 @@ body{
 .shop-isle-header-title-inner{
     text-align: left;
 }
+.shop_isle_header_title{
+    margin-left: 0px;
+    padding: 0px;
+}
 
-
-
+/*search*/
 .header-search-button:hover {
     color: rgba(0, 0, 0, 0.5);
 }
+.header-search{
+    float: right !important;
+    text-align: right !important;
+}
+
+
 .dropdownmenu {
     color: #23282dbd;
 }
