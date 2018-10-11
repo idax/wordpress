@@ -71,7 +71,7 @@ body{
     padding: 0px;
 }
 
-/*search*/
+/*search icon*/
 .header-search-button:hover {
     color: rgba(0, 0, 0, 0.5);
 }
@@ -187,6 +187,9 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 /*Content-single pages*/
 #collaborators-image{
     text-align: right;
+}
+#collaborators-title{
+    margin-top: 0px;
 }
 
 /* Footer */
