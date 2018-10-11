@@ -23,7 +23,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'singl
 ?>
 
 
-<div class="row col-sm-12"> 
+<div class="row col-sm-12" id="collaborator-content"> 
 	<div class="col-sm-7"> 
 		 <h2 id="collaborators-title"><?php echo $post->post_title; ?> </h2>
 		 <p><?php echo print_post_text("collaborators-text", $post); ?></p> 

@@ -68,7 +68,7 @@ body{
 }
 .shop_isle_header_title{
     margin-left: 0px;
-    padding: 0px;
+    padding: 15px 0px 0px 0px !important;
 }
 
 /*search icon*/
@@ -190,6 +190,9 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 }
 #collaborators-title{
     margin-top: 0px;
+}
+#collaborator-content{
+    margin-top: 30px;
 }
 
 /* Footer */
