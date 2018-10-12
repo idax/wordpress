@@ -190,9 +190,11 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 }
 #collaborators-title{
     margin-top: 0px;
+    border-top: 1px solid;
+    padding-top: 50px;
 }
 #collaborator-content{
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 /* Footer */
