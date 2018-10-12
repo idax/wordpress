@@ -189,7 +189,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
     text-align: right;
 }
 #collaborators-title{
-    margin-top: 15px;
+    margin-top: 0px;
     border-top: 1px solid;
     padding-top: 50px;
 }
