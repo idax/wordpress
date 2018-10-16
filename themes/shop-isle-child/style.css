@@ -19,7 +19,13 @@ body{
 .custom-logo {
     width: 70%;
 }
+html body.home .navbar-transparent {
+    background: rgba(255, 255, 255, 1) !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 /* Navbar*/
+
 .navbar-custom {
     background-color: white;
 }
