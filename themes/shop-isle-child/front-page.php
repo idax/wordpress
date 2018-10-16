@@ -22,7 +22,7 @@ if ( isset( $shop_isle_bg ) && $shop_isle_bg != '' ) {
 	echo '<div class="main front-page-main" style="background-color: #FFF">';
 
 }
-
+ 
 if ( defined( 'WCCM_VERISON' ) ) {
 
 	/* Woocommerce compare list plugin */

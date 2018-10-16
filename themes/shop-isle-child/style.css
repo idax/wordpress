@@ -47,7 +47,7 @@ body{
 .navbar-custom .navbar-toggle .icon-bar {
     background: #111 !important;
 }
-.navbar-custom .sub-menu, .navbar-custom .children {
+html .navbar-custom .sub-menu, .navbar-custom .children {
     background: #ffffff !important;
     
 }
@@ -61,6 +61,7 @@ body{
 	color: rgba(0, 0, 0, 0.5);
 	
 }
+
 
 /*logo*/
 .shop-isle-header-title-inner{
@@ -132,6 +133,14 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
     align-items: center;
 }
 
+table, td {
+    border-bottom: #dddddd 1px solid;
+    text-align: left;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
 #posts-wrapper {
     display: flex;
     flex-direction: row;
@@ -141,18 +150,6 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
     margin-bottom: 50px;
     margin-top: 50px;
 }
-
-
-#sketch-posts-wrapper {
-    display: flex;
-    flex-direction: row;
-    vertical-align: middle;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 50px;
-    text-align: center;
-}
-
 .read-more{
     background-color: #fff;
     color: #000;
@@ -235,6 +232,7 @@ margin: 0px;
 .post-navigation {
     display: none;
 }
+
 @media (max-width: 600px) {
 body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
     max-height: unset !important;

@@ -2,7 +2,7 @@
 /**
  * The Template for displaying all single products
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/single-product.php.
+ * This template can be overridden by copying it to yourtheme/oocommerce/single-product.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -167,64 +167,63 @@ function banner_printer($post_type_name, $delimiter1, $delimiter2, $imageCssId, 
 	<?php
 }
 
-function sketch_banner_printer($post_type_name, $delimiter1, $delimiter2, $displayReadMore, $product) {
+function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2, $displayReadMore, $product)
+{
+    
+    $banner_posts          = query_posts('post_type=' . $post_type_name);
+    $banner_category_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2));
+?>
+   <div class="container-fluid banner">
+       <div class="row center-with-flex">
+<?php
+    if (!empty($banner_posts) && !empty($banner_category_names)) {
+        
+        foreach ($banner_posts as $banner_post) {
+            foreach ($banner_category_names as $banner_category_name) {
+                if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) {
 
-	$banner_posts = query_posts('post_type='.$post_type_name);
-	$banner_category_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2));
-	?>
-	<div class="container-fluid banner">
-	   <div class="row center-with-flex">
-			   <?php
-
-			   if(!empty($banner_posts) && !empty($banner_category_names)) {
-				   foreach ($banner_posts as $banner_post) {
-					   foreach($banner_category_names as $banner_category_name) {
-						   if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) {
-							   $extra_images_ids = getMultiplePictures($banner_post);
-			   ?>
-
-			   <?php 
-				   	if(!empty($extra_images_ids)) {
-						$image_counter = 0;
-						foreach($extra_images_ids as $extra_image_id) {
-							$extra_image = wp_get_attachment_image_src($extra_image_id, 'single-post-thumbnail')[0];
-							$extra_image_desc = get_post($extra_image_id)->post_content;
-							if($image_counter == 0) echo '<div id="sketch-posts-wrapper">';
-							?>
-
-							<div class="col-sm-4" id="sketches">
-								<p><?php echo $extra_image_desc ?> </p>
-								<img src=<?php echo $extra_image ?>>
-							</div>
-							
-							<?php
-							$image_counter++;
-							if($image_counter == 3) {
-								echo '</div>';
-								$image_counter = 0;
-							}
-					   }
-				} 
-					
-			   ?>
-				   
-
-			   
-			   <?php
-						   }
-					   }
-				   }
-			   } else {
-				   echo 'no results :(';
-			   }
-			   ?>
-	   </div>
+					$category = get_the_terms( $product->ID, 'product_cat' )[0]->name; if(empty($category)) $category = "unknown :(";
+					$designer = explode(',', get_string_between($product->description, '¤designers¤', '¤/designers¤'))[0]; if(empty($designer)) $designer = "unknown :(";
+?>		
+					<table>
+						<tr>
+							<td>Type:</td>
+							<td><?php echo $category; ?></td>
+						</tr>
+						<tr>
+							<td>Designer:</td>
+							<td><?php echo $designer; ?></td>
+						</tr>
+						<tr>
+							<td>Model:</td>
+							<td><?php echo $product->name; ?></td>
+						</tr>
+<?php
+					$spec_list = explode(",", $banner_post->post_content);
+                    foreach ($spec_list as $spec_item) {
+                        $spec_name = substr($spec_item, 0, strpos($spec_item, ":") + 1);
+                        $spec_data = substr($spec_item, strpos($spec_item, ":") + 1);
+?>
+                       <tr>
+                            <td><?php echo $spec_name; ?></td>
+                            <td><?php echo $spec_data; ?></td>
+                        </tr>
+<?php
+                    }
+                    echo '</table>';
+                }
+            }
+        }
+    } else {
+        echo 'no results :(';
+    }
+?>
+      </div>
    </div>
    <?php
 }
 
-
-sketch_banner_printer("f_sketches", "¤sketches¤", "¤/sketches¤", false, $product);
+specifications_banner_printer("f_specifications", "¤specifications¤", "¤/specifications¤", "text-specific", $product);
 banner_printer("f_designer", 		"¤designers¤", 		"¤/designers¤", 	"designer", 	"text-design", 		true, 	true,	$product);
 banner_printer("f_manufacturer", 	"¤manufacturers¤", 	"¤/manufacturers¤", "manufacturer", "text-manufac", 	false, 	true, 	$product);
 banner_printer("f_distributor", 	"¤distributors¤", 	"¤/distributors¤", 	"distributor", 	"text-distri", 		true, 	true, 	$product);

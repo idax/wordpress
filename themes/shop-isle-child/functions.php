@@ -73,6 +73,74 @@ function shop_isle_footer_copyright_and_socials() {
 	<?php
 }
 /*Steven and Ida was here :)*/
+
+
+function mls_settings($wp_customize){
+
+	$wp_customize->add_section('michael-kvist-settings', array(
+			'title'    => __('Michael Kvist Settings', 'txt_blocks'),
+			'description' => 'General Settings',
+			'priority' => 30,
+	));
+
+	//  =============================
+	//  = Designer                  =
+	//  =============================
+	$wp_customize->add_setting('designer_text_block', array(
+			'default'        => '',
+			'capability'     => 'edit_theme_options',
+			'type'           => 'theme_mod',
+
+	));
+
+	$wp_customize->add_control('designer_text', array(
+			'label'      => __('Designer Text', 'txt_blocks'),
+			'section'    => 'michael-kvist-settings',
+			'settings'   => 'designer_text_block',
+			'type' => 'textarea',
+	));
+
+			//  =============================
+	//  = Distributor                =
+	//  =============================
+	$wp_customize->add_setting('distributor_text_block', array(
+			'default'        => '',
+			'capability'     => 'edit_theme_options',
+			'type'           => 'theme_mod',
+
+	));
+
+	$wp_customize->add_control('distributor_text', array(
+			'label'      => __('Distributor Text', 'txt_blocks'),
+			'section'    => 'michael-kvist-settings',
+			'settings'   => 'distributor_text_block',
+			'type' => 'textarea',
+	));
+
+
+	//  =============================
+	//  = Manufacturer                  =
+	//  =============================
+	$wp_customize->add_setting('manufacturer_text_block', array(
+		'default'        => '',
+		'capability'     => 'edit_theme_options',
+		'type'           => 'theme_mod',
+
+));
+
+$wp_customize->add_control('manufacturer_text', array(
+		'label'      => __('Manufacturer Text', 'txt_blocks'),
+		'section'    => 'michael-kvist-settings',
+		'settings'   => 'manufacturer_text_block',
+		'type' => 'textarea',
+));
+
+	
+
+}
+
+//add
+add_action( 'customize_register', 'mls_settings' );
 ?>
 
 
