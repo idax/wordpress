@@ -186,7 +186,13 @@ table{
 .collaborators-grid p{
     margin-top: 20px;
 }
-
+#col-img:hover {
+    cursor: pointer;
+}
+#section{
+border: solid black 1px; 
+padding: 20px;
+}
 /*Content-single pages*/
 #collaborators-image{
     text-align: right;
@@ -199,6 +205,7 @@ table{
 #collaborator-content{
     margin-top: 50px;
 }
+
 
 /* Footer */
 .bg-dark{

@@ -82,7 +82,7 @@ get_header(); ?>
 						'order'    => 'ASC',
 						'orderby'=>'menu_order'
 					  ]);
-					  echo '<p style="border: solid black 1px; padding: 20px">'.$coll_text_block.'</p>';
+					  echo '<p style="border-bottom: solid black 1px; padding: 20px">'.$coll_text_block.'</p>';
 					  echo '<div class="col-sm-12 collaborators-grid">';
 					  foreach($posts as $a_post) {
 						  $image = get_post(get_post_thumbnail_id($a_post));

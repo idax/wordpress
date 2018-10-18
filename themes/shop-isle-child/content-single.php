@@ -62,24 +62,25 @@ foreach($all_products as $m_product) {
 		<img src=<?php echo $image; ?>>
 	</div>
 
-	<div>
+	
+
 		<?php
 		foreach($products as $product) {
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $product->ID ), 'single-post-thumbnail' )[0];
 		?>
 		
 
-
-		<div>
-				<img src=<?php echo $image ?>>
-		</div>
+		
+			<div class="col-sm-4">
+					<img src=<?php echo $image ?>>
+			</div>
 		
 
 
 		<?php
 		}
 		?>
-	</div>
+	
 
 
 </div>
