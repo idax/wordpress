@@ -174,43 +174,50 @@ function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2
     $banner_category_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2));
 ?>
    <div class="container-fluid banner">
-       <div class="row center-with-flex">
+       <div class="row center-with-flex" style>
 <?php
     if (!empty($banner_posts) && !empty($banner_category_names)) {
         
         foreach ($banner_posts as $banner_post) {
             foreach ($banner_category_names as $banner_category_name) {
                 if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) {
-
-					$category = get_the_terms( $product->ID, 'product_cat' )[0]->name; if(empty($category)) $category = "unknown :(";
+					$categories = [];
+					foreach(get_the_terms( $product->ID, 'product_cat' ) as $category) {
+						array_push($categories, $category->name); 
+					}
 					$designer = explode(',', get_string_between($product->description, '¤designers¤', '¤/designers¤'))[0]; if(empty($designer)) $designer = "unknown :(";
 ?>		
-					<table>
-						<tr>
-							<td>Type:</td>
-							<td><?php echo $category; ?></td>
-						</tr>
+					<table style="width: 40%;">
 						<tr>
 							<td>Designer:</td>
 							<td><?php echo $designer; ?></td>
 						</tr>
 						<tr>
+							<td>Type:</td>
+							<td><?php echo Join(", ", $categories); ?></td>
+						</tr>
+						<tr>
 							<td>Model:</td>
 							<td><?php echo $product->name; ?></td>
 						</tr>
-<?php
+						<tr> <td valign="top">Measurements:</td>
+						<td> <table>
+<?php					
 					$spec_list = explode(",", $banner_post->post_content);
                     foreach ($spec_list as $spec_item) {
                         $spec_name = substr($spec_item, 0, strpos($spec_item, ":") + 1);
                         $spec_data = substr($spec_item, strpos($spec_item, ":") + 1);
 ?>
-                       <tr>
-                            <td><?php echo $spec_name; ?></td>
-                            <td><?php echo $spec_data; ?></td>
-                        </tr>
+                            
+						<tr>
+							<td><?php echo $spec_name; ?></td>
+							<td><?php echo $spec_data; ?></td>
+						</tr>
+                        
 <?php
-                    }
-                    echo '</table>';
+					}
+					
+                    echo '</table> </td> </tr> </table>';
                 }
             }
         }
