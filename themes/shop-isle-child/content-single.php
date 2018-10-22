@@ -11,14 +11,17 @@ function get_string_between($string, $start, $end){
 
 
 function print_post_text($textCssId, $single_post) {
+	$content = get_string_between($single_post->post_content, "#TEASER START#", "#TEASER END#")." ".get_string_between($single_post->post_content, "#MAIN START#", "#MAIN END#");
 	?>
-	<div id="<?php echo $textCssId ?>">	
-		<p > <?php echo get_string_between($single_post->post_content, "#MAIN START#", "#MAIN END#") ?> </p>
+	<div id="<?php echo $textCssId ?>">
+		<p > <?php echo $content ?> </p>		
 	</div>
 	<?php
 }
 
-$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0]; 
+$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+
+$isimagecorrect = ($image == "What im looking for");
 
 $all_products = get_posts(array( 'post_type' => 'product', 'posts_per_page' => -1 )); 	//Hent alle produkter
 $products = [];																			//Lav array som vi kan gemme de produkter vi egentlig vil vise
@@ -55,7 +58,7 @@ foreach($all_products as $m_product) {
 
 <div class="row col-sm-12" id="collaborator-content"> 
 	<div class="col-sm-7"> 
-		 <h2 id="collaborators-title"><?php echo $post->post_title; ?> </h2>
+		 
 		 <p><?php echo print_post_text("collaborators-text", $post); ?></p> 
 	</div>
 	<div class="col-sm-5" id="collaborators-image">
@@ -63,16 +66,23 @@ foreach($all_products as $m_product) {
 	</div>
 
 	
+		
+	
 
+
+</div>
+
+<div class="coll-products-wrapper col-sm-12">
 		<?php
+		
 		foreach($products as $product) {
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $product->ID ), 'single-post-thumbnail' )[0];
 		?>
 		
-
+			
 		
-			<div class="col-sm-4">
-					<img src=<?php echo $image ?>>
+			<div class=<?php echo ('"col-sm-'.(12/count($products)).'"'); ?>>			
+					<img style="height: 330px;" class="images-pointer" src=<?php echo $image ?> onclick="window.location.href='<?php echo get_post_permalink($product->ID) ?>'">
 			</div>
 		
 
@@ -80,10 +90,7 @@ foreach($all_products as $m_product) {
 		<?php
 		}
 		?>
-	
-
-
-</div>
+		</div>
 
 
 

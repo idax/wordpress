@@ -187,7 +187,7 @@ function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2
 					}
 					$designer = explode(',', get_string_between($product->description, '¤designers¤', '¤/designers¤'))[0]; if(empty($designer)) $designer = "unknown :(";
 ?>		
-					<table style="width: 40%;">
+					<table style="width: 40%; border-bottom: 0px;">
 						<tr>
 							<td>Designer:</td>
 							<td><?php echo $designer; ?></td>
@@ -200,18 +200,21 @@ function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2
 							<td>Model:</td>
 							<td><?php echo $product->name; ?></td>
 						</tr>
-						<tr> <td valign="top">Measurements:</td>
-						<td> <table>
+						<tr style="border-bottom: 1px solid #dddddd;"> <td style="border-bottom: 0px;" valign="top">Measurements:</td>
+						<td style="border-bottom: 0px;"> <table style="border-bottom: 0px !important; margin: 0px !important;">
 <?php					
 					$spec_list = explode(",", $banner_post->post_content);
+					$counter = 0;
                     foreach ($spec_list as $spec_item) {
+						$counter++;
                         $spec_name = substr($spec_item, 0, strpos($spec_item, ":") + 1);
-                        $spec_data = substr($spec_item, strpos($spec_item, ":") + 1);
+						$spec_data = substr($spec_item, strpos($spec_item, ":") + 1);
+						$lastitem = $counter == count($spec_list);
 ?>
                             
 						<tr>
-							<td><?php echo $spec_name; ?></td>
-							<td><?php echo $spec_data; ?></td>
+							<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_name; ?></td>
+							<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_data; ?></td>
 						</tr>
                         
 <?php

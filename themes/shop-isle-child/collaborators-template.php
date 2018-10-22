@@ -82,16 +82,16 @@ get_header(); ?>
 						'order'    => 'ASC',
 						'orderby'=>'menu_order'
 					  ]);
-					  echo '<p style="border-bottom: solid black 1px; padding: 20px">'.$coll_text_block.'</p>';
+					  echo '<p id="into-text">'.$coll_text_block.'</p>';
 					  echo '<div class="col-sm-12 collaborators-grid">';
 					  foreach($posts as $a_post) {
 						  $image = get_post(get_post_thumbnail_id($a_post));
 						  $image_url = $image->guid;
 						  $image_title = $image->post_title;
 						?>
-					<?php //HERE IDA LALALALALALALLALA hover: cursor: pointer ?>
+					
 						<div <?php if($is_designer) echo 'style="flex-direction: column;"' ?>>
-							<img style=":hover {cursor: pointer}" src= <?php echo $image_url; ?> onclick="window.location.href='<?php echo get_post_permalink($a_post->ID) ?>'">
+							<img class="images-pointer" src= <?php echo $image_url; ?> onclick="window.location.href='<?php echo get_post_permalink($a_post->ID) ?>'">
 
 							 <?php if($post_type == 'f_designer') { echo '<p>'.$image_title.'</p>'; } ?>
 					  	</div>

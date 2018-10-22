@@ -193,6 +193,15 @@ table{
 border: solid black 1px; 
 padding: 20px;
 }
+.images-pointer:hover{
+    cursor: pointer !important;
+}
+#into-text{
+    border-bottom: solid black 1px;
+    padding: 0px 20px 100px 20px;
+    margin-bottom: 100px;
+    text-align: center;
+}
 /*Content-single pages*/
 #collaborators-image{
     text-align: right;
@@ -258,3 +267,8 @@ body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
         
     }
 }
+
+.coll-products-wrapper>div{
+    text-align: center;
+}
+
