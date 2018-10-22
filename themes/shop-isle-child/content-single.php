@@ -57,7 +57,7 @@ foreach($all_products as $m_product) {
 
 
 <div class="row col-sm-12" id="collaborator-content"> 
-	<div class="col-sm-7"> 
+	<div class="col-sm-7 main-content"> 
 		 
 		 <p><?php echo print_post_text("collaborators-text", $post); ?></p> 
 	</div>

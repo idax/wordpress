@@ -214,7 +214,18 @@ padding: 20px;
 #collaborator-content{
     margin-top: 50px;
 }
-
+.main-content{
+    border-top: 1px solid;
+    padding-top: 50px;
+}
+.coll-products-wrapper{
+    border-top: 1px solid;
+    margin-top: 100px;
+    padding-top: 50px;
+}
+.coll-products-wrapper>div{
+    text-align: center;
+}
 
 /* Footer */
 .bg-dark{
@@ -268,7 +279,5 @@ body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
     }
 }
 
-.coll-products-wrapper>div{
-    text-align: center;
-}
+
 
