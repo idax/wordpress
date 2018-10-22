@@ -265,6 +265,9 @@ margin: 0px;
 .post-navigation {
     display: none;
 }
+.linkedin{
+    font-size: 30px;
+}
 
 @media (max-width: 600px) {
 body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
