@@ -211,14 +211,18 @@ function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2
 						$spec_data = substr($spec_item, strpos($spec_item, ":") + 1);
 						$lastitem = $counter == count($spec_list);
 ?>
-                            
+                        <?php if(strpos($spec_item, ':') !== false) { ?>
 						<tr>
 							<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_name; ?></td>
 							<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_data; ?></td>
 						</tr>
-                        
+						<?php } else { ?>
+						<tr>
+							<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_item; ?></td>
+						</tr>
 <?php
-					}
+						}	
+				}
 					
                     echo '</table> </td> </tr> </table>';
                 }

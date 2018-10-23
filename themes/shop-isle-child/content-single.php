@@ -45,11 +45,15 @@ switch ($post->post_type) {
 		$delimiterStart = 'NOPE';
 		$delimiterEnd = 'NOPE';
 }
-
+$productCounter = 0;
 foreach($all_products as $m_product) {
 	$collaborators_on_product =  explode(',', get_string_between($m_product->post_content, $delimiterStart, $delimiterEnd));
 	if($post->post_title != '' && in_array($post->post_title, $collaborators_on_product)) {
 		array_push($products, $m_product);
+		$productCounter++;
+	}
+	if($productCounter >= 3) {
+		break;
 	}
 }
 
