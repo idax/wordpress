@@ -304,6 +304,24 @@ margin: 0px;
         font-size: 30px !important;
     }
 
+    /* sigle product */
+    .single-product div.product .images, .single-product div.product .summary, .center-with-flex,  #text-design, #text-distri, #text-manufac{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .center-with-flex{
+        align-items: unset;
+        
+    }
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+   }
+    #posts-wrapper{
+        display: unset;
+    }
+
     /* about */
     .elementor-30 .elementor-element.elementor-element-a075ba6 > .elementor-element-populated, .elementor-30 .elementor-element.elementor-element-655bc8f > .elementor-element-populated{
         border-style: none !important;
