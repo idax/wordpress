@@ -270,10 +270,31 @@ margin: 0px;
 }
 
 @media (max-width: 600px) {
-body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
+    /* navbar */
+    body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
     max-height: unset !important;
     margin-top: 0px;
     }
+   
+    .shop-isle-header-title-inner{
+        margin-left: 10px;
+    }
+    .custom-logo {
+        width: 40%;
+    }
+    #custom-collapse{
+        background: #fff !important;
+    }
+    /* Haeder */
+    .elementor-152 .elementor-element.elementor-element-1399bb09 .elementor-heading-title {
+        font-size: 30px;
+    }
+    
+    /* footer */
+    .bg-dark{
+        margin-left: 10px;
+    }
+
     #designer {
         margin-left: 0px;
         margin-top: 0px;
@@ -282,5 +303,20 @@ body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
     }
 }
 
+
+@media (max-width: 768px) {
+.header-container {
+    width: 100vw;
+}
+}
+
+.header-container {
+    width: 100vw;
+}
+
+html {
+    width: 100vw !important;
+    position: absolute;
+}
 
 
