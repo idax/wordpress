@@ -332,18 +332,6 @@ margin: 0px;
     .collaborators-grid{
         grid-template-columns: none;
     }
-    
-    /* footer */
-    .bg-dark{
-        margin-left: 10px;
-    }
-
-    #designer {
-        margin-left: 0px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        
-    }
 }
 
 
