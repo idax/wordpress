@@ -306,7 +306,7 @@ margin: 0px;
 
     /* about */
     .elementor-30 .elementor-element.elementor-element-a075ba6 > .elementor-element-populated, .elementor-30 .elementor-element.elementor-element-655bc8f > .elementor-element-populated{
-        
+        border-style: none !important;
         border-bottom: 1px solid !important;
     }
 
