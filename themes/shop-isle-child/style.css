@@ -266,6 +266,10 @@ margin: 0px;
 .linkedin{
     font-size: 30px;
 }
+.mail{
+    color: #82a0ab !important;
+    font-size: 30px;
+}
 
 @media (max-width: 600px) {
     /* navbar */
