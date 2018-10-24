@@ -71,7 +71,6 @@ get_header(); ?>
 
 
 
-
 					$post_type = 'f_'.basename(get_permalink());
 					$coll_text_block = get_theme_mod( basename(get_permalink()).'_text_block');
 					$is_designer = ($post_type == 'f_designer');

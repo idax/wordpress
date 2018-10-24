@@ -269,6 +269,12 @@ margin: 0px;
 .mail{
     color: #82a0ab !important;
     font-size: 30px;
+    margin-left: 10px;
+}
+@media (max-width: 768px) {
+.header-container {
+    width: 100vw;
+    }
 }
 
 @media (max-width: 600px) {
@@ -287,9 +293,20 @@ margin: 0px;
     #custom-collapse{
         background: #fff !important;
     }
+    .navbar-toggle{
+        padding: 0px;
+    }
+    .header-search-button{
+        margin-right: 10px;
+    }
     /* Haeder */
     .elementor-152 .elementor-element.elementor-element-1399bb09 .elementor-heading-title {
         font-size: 30px !important;
+    }
+
+    /* collaborator */
+    .collaborators-grid{
+        grid-template-columns: none;
     }
     
     /* footer */
@@ -306,11 +323,7 @@ margin: 0px;
 }
 
 
-@media (max-width: 768px) {
-.header-container {
-    width: 100vw;
-}
-}
+
 /*
 .header-container {
     width: 100vw;
