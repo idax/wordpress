@@ -98,7 +98,7 @@ function print_post_text($textCssId, $banner_post, $displayReadMore) {
 	?>
 	<div class="col-sm-8" id="<?php echo $textCssId ?>">	
 		<p > <?php echo get_string_between($banner_post->post_content, "#TEASER START#", "#TEASER END#") ?> </p>
-		<?php if($displayReadMore == true) { ?> <button class="btn read-more" type="button" onclick="window.location.href='<?php echo get_post_permalink($banner_post->ID) ?>'">READ MORE</button>  <?php } ?>
+		<?php if($displayReadMore == true) { ?> <button class="btn btn-lg read-more" type="button" onclick="window.location.href='<?php echo get_post_permalink($banner_post->ID) ?>'">READ MORE</button>  <?php } ?>
 	</div>
 	<?php
 }

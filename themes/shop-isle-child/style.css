@@ -159,7 +159,7 @@ table{
 .read-more{
     background-color: #fff;
     color: #000;
-    font-size: 16px;
+    font-size: 16px !important;
     border: 1px solid #000000;
 }
 .read-more:hover{
@@ -317,7 +317,6 @@ margin: 0px;
         margin-left: 0px;
         margin-right: 0px;
     }
-   }
     #posts-wrapper{
         display: unset;
     }
@@ -333,7 +332,6 @@ margin: 0px;
         grid-template-columns: none;
     }
 }
-
 
 
 /*
