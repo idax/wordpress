@@ -224,6 +224,12 @@ padding: 20px;
 .coll-products-wrapper>div{
     text-align: center;
 }
+.product-grid > div{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    padding: 2em;
+}
 
 /* Footer */
 .bg-dark{

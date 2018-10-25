@@ -50,7 +50,6 @@ foreach($all_products as $m_product) {
 	$collaborators_on_product =  explode(',', get_string_between($m_product->post_content, $delimiterStart, $delimiterEnd));
 	if($post->post_title != '' && in_array($post->post_title, $collaborators_on_product)) {
 		array_push($products, $m_product);
-		$productCounter++;
 	}
 	
 }
@@ -74,21 +73,16 @@ foreach($all_products as $m_product) {
 
 </div>
 
-<div class="coll-products-wrapper col-sm-12">
+<div class="product-grid col-sm-12">
 		<?php
 		
 		foreach($products as $product) {
 			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $product->ID ), 'single-post-thumbnail' )[0];
 		?>
-		
-			
-		
-			<div class=<?php echo ('"col-sm-'.(12/count($products)).'"'); ?>>			
+
+			<div>			
 					<img  class="images-pointer" src=<?php echo $image ?> onclick="window.location.href='<?php echo get_post_permalink($product->ID) ?>'">
 			</div>
-		
-
-
 		<?php
 		}
 		?>
