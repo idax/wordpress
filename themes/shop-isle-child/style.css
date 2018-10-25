@@ -230,6 +230,9 @@ padding: 20px;
     column-gap: 2em;
     row-gap: 2em;
     grid-auto-rows: 1fr;
+    border-top: 1px solid;
+    margin-top: 50px;
+    padding-top: 50px;
 }
 .product-grid > div{
     display: flex;
@@ -285,9 +288,13 @@ margin: 0px;
     margin-left: 10px;
 }
 @media (max-width: 768px) {
-.header-container {
-    width: 100vw;
+    #custom-collapse{
+        background: #fff !important;
     }
+    .header-search-button{
+        margin-right: 15px;
+    }
+
 }
 
 @media (max-width: 600px) {
@@ -296,22 +303,17 @@ margin: 0px;
     max-height: unset !important;
     margin-top: 0px;
     }
-   
     .shop-isle-header-title-inner{
         margin-left: 15px;
     }
     .custom-logo {
         width: 40%;
     }
-    #custom-collapse{
-        background: #fff !important;
-    }
+    
     .navbar-toggle{
         padding: 0px;
     }
-    .header-search-button{
-        margin-right: 15px;
-    }
+    
     /* Haeder */
     .elementor-152 .elementor-element.elementor-element-1399bb09 .elementor-heading-title {
         font-size: 30px !important;
