@@ -287,12 +287,20 @@ margin: 0px;
     font-size: 30px;
     margin-left: 10px;
 }
+@media screen and (max-width: 992px){
+    .woocommerce ul.products li.product:nth-child(2n+1) {
+        clear: none !important;
+    }
+}
 @media (max-width: 768px) {
     #custom-collapse{
         background: #fff !important;
     }
     .header-search-button{
         margin-right: 15px;
+    }
+    .custom-logo {
+        width: 50%;
     }
 
 }
@@ -344,6 +352,11 @@ margin: 0px;
 
     /* collaborator */
     .collaborators-grid, .product-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 450px){
+    .collaborators-grid, .product-grid {
         grid-template-columns: none;
     }
 }
