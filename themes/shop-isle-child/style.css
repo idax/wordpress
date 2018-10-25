@@ -224,6 +224,13 @@ padding: 20px;
 .coll-products-wrapper>div{
     text-align: center;
 }
+.product-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2em;
+    row-gap: 2em;
+    grid-auto-rows: 1fr;
+}
 .product-grid > div{
     display: flex;
     align-items: center;
@@ -334,7 +341,7 @@ margin: 0px;
     }
 
     /* collaborator */
-    .collaborators-grid{
+    .collaborators-grid, .product-grid{
         grid-template-columns: none;
     }
 }
