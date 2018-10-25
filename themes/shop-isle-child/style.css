@@ -291,8 +291,24 @@ margin: 0px;
     .woocommerce ul.products li.product:nth-child(2n+1) {
         clear: none !important;
     }
+    
 }
 @media (max-width: 768px) {
+    /* navbar */
+    body.admin-bar .navbar.navbar-scroll-point.navbar-fixed-top .navbar-collapse {
+        max-height: unset !important;
+        margin-top: 0px;
+        }
+        .shop-isle-header-title-inner{
+            margin-left: 15px;
+        }
+        .custom-logo {
+            width: 40%;
+        }
+        
+        .navbar-toggle{
+            padding: 0px;
+        }
     #custom-collapse{
         background: #fff !important;
     }
@@ -301,6 +317,41 @@ margin: 0px;
     }
     .custom-logo {
         width: 50%;
+    }
+    /* sigle product*/
+    .single-product div.product .images, .single-product div.product .summary {
+        width: 100%;
+        padding-left: 15px !important;
+    }
+    
+     .single-product div.product .images, .single-product div.product .summary, .center-with-flex,  #text-design, #text-distri, #text-manufac{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .center-with-flex{
+        align-items: unset;
+        
+    }
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    #posts-wrapper{
+        display: unset;
+    }
+    table {   
+        width: 100% !important;
+    }
+
+    /* content sigle page */
+    #collaborators-image {
+        text-align: center;
+    }
+    .main-content {
+        border-top: none;
+        padding-top: 0px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 
 }
@@ -327,22 +378,8 @@ margin: 0px;
         font-size: 30px !important;
     }
 
-    /* sigle product */
-    .single-product div.product .images, .single-product div.product .summary, .center-with-flex,  #text-design, #text-distri, #text-manufac{
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-    .center-with-flex{
-        align-items: unset;
-        
-    }
-    .row {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    #posts-wrapper{
-        display: unset;
-    }
+    
+   
 
     /* about */
     .elementor-30 .elementor-element.elementor-element-a075ba6 > .elementor-element-populated, .elementor-30 .elementor-element.elementor-element-655bc8f > .elementor-element-populated{

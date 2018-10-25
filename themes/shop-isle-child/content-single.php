@@ -58,13 +58,14 @@ foreach($all_products as $m_product) {
 
 
 <div class="row col-sm-12" id="collaborator-content"> 
-	<div class="col-sm-7 main-content"> 
+	<div class="col-sm-5 col-sm-push-7" id="collaborators-image">
+		<img src=<?php echo $image; ?>>
+	</div>
+	<div class="col-sm-7 col-sm-pull-5 main-content"> 
 		 
 		 <p><?php echo print_post_text("collaborators-text", $post); ?></p> 
 	</div>
-	<div class="col-sm-5" id="collaborators-image">
-		<img src=<?php echo $image; ?>>
-	</div>
+	
 
 	
 		
