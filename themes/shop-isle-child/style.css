@@ -326,37 +326,31 @@ margin: 0px;
     .single-product div.product .images, .single-product div.product .summary {
         width: 100%;
         padding-left: 15px !important;
-    }
-    
+    }  
      .single-product div.product .images, .single-product div.product .summary, .center-with-flex,  #text-design, #text-distri, #text-manufac{
         padding-left: 15px !important;
         padding-right: 15px !important;
-    }
-    .center-with-flex{
-        align-items: unset;
-        
     }
     .row {
         margin-left: 0px;
         margin-right: 0px;
     }
-    #posts-wrapper{
-        display: unset;
-    }
+
     table {   
         width: 100% !important;
     }
 
     /* content sigle page */
     #collaborators-image {
-        text-align: center;
+        text-align: center !important;
     }
+    /*
     .main-content {
         border-top: none;
         padding-top: 0px;
         margin-left: 15px;
         margin-right: 15px;
-    }
+    }*/
 
 }
 
