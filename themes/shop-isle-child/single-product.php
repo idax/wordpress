@@ -87,45 +87,6 @@ function get_string_between($string, $start, $end){
 	return substr($string, $ini, $len);
 }
 
-function print_post_image($imageCssId, $image) {
-	?>
-	<div class="col-sm-4">
-		<img id="<?php echo $imageCssId ?>" src= <?php echo $image ?> >	
-	</div>
-	<?php
-}
-function print_post_text($textCssId, $banner_post, $displayReadMore) {
-	?>
-	<div class="col-sm-8" id="<?php echo $textCssId ?>">	
-		<p > <?php echo get_string_between($banner_post->post_content, "#TEASER START#", "#TEASER END#") ?> </p>
-		<?php if($displayReadMore == true) { ?> <button class="btn btn-lg read-more" type="button" onclick="window.location.href='<?php echo get_post_permalink($banner_post->ID) ?>'">READ MORE</button>  <?php } ?>
-	</div>
-	<?php
-}
-
-//Denne funktion returnerer et array med alle de extra images som findes på en post.
-
-function getMultiplePictures($the_post) {
-	if (class_exists('MultiPostThumbnails') && get_post_type( $the_post->ID ) == 'f_sketches') {
-		$imageExists = true; 	//Vi bruger en boolean til at stoppe vores while loop når der findes et billedefelt uden et billede.
-		$counter = 0;			
-		$images_id_array = array();
-		while($imageExists) {
-			$multi_image = MultiPostThumbnails::get_post_thumbnail_id(get_post_type( $the_post->ID ), 'multi_image_'.$counter, $the_post->ID); //get_post_thumbnail_id($post_type, $multi_image_id, $post_id)
-			if($multi_image != null) {
-				array_push($images_id_array, $multi_image);
-				$counter++;
-			} else {
-				$imageExists = false;
-			}
-		}
-		return $images_id_array;
-	} else {
-		return array();
-	}
-	
-}
-
 function banner_printer($post_type_name, $delimiter1, $delimiter2, $imageCssId, $textCssId, $imageFirst, $displayReadMore, $product) {
 
 	 $banner_posts = query_posts('post_type='.$post_type_name);
@@ -143,13 +104,23 @@ function banner_printer($post_type_name, $delimiter1, $delimiter2, $imageCssId, 
 				?>
 				<div id="posts-wrapper">
 				<?php
-					if($imageFirst) {
-					print_post_image($imageCssId, $image);
-					print_post_text($textCssId, $banner_post, $displayReadMore);
-					} else {
-					print_post_text($textCssId, $banner_post, $displayReadMore);
-					print_post_image($imageCssId, $image);
-					}
+					if($imageFirst) { ?>
+					<div class="col-sm-4">
+						<img id="<?php echo $imageCssId ?>" src= <?php echo $image ?> >	
+					</div>
+					<div class="col-sm-8" id="<?php echo $textCssId ?>">	
+						<p > <?php echo get_string_between($banner_post->post_content, "#TEASER START#", "#TEASER END#") ?> </p>
+						<?php if($displayReadMore == true) { ?> <button class="btn btn-lg read-more" type="button" onclick="window.location.href='<?php echo get_post_permalink($banner_post->ID) ?>'">READ MORE</button>  <?php } ?>
+					</div>
+			<?php	} else { ?>
+				<div class="col-sm-4 col-sm-push-8">
+						<img id="<?php echo $imageCssId ?>" src= <?php echo $image ?> >	
+					</div>
+					<div class="col-sm-8 col-sm-pull-4" id="<?php echo $textCssId ?>">	
+						<p > <?php echo get_string_between($banner_post->post_content, "#TEASER START#", "#TEASER END#") ?> </p>
+						<?php if($displayReadMore == true) { ?> <button class="btn btn-lg read-more" type="button" onclick="window.location.href='<?php echo get_post_permalink($banner_post->ID) ?>'">READ MORE</button>  <?php } ?>
+					</div>
+			<?php	}
 				?>
 				</div>
 				<?php
@@ -174,7 +145,7 @@ function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2
     $banner_category_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2));
 ?>
    <div class="container-fluid banner">
-       <div class="row center-with-flex" style>
+       <div class="row center-with-flex" id="specification" style>
 <?php
     if (!empty($banner_posts) && !empty($banner_category_names)) {
         

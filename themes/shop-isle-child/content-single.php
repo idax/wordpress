@@ -21,7 +21,7 @@ function print_post_text($textCssId, $single_post) {
 
 $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
 
-$isimagecorrect = ($image == "What im looking for");
+
 
 $all_products = get_posts(array( 'post_type' => 'product', 'posts_per_page' => -1 )); 	//Hent alle produkter
 $products = [];																			//Lav array som vi kan gemme de produkter vi egentlig vil vise
