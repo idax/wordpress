@@ -327,6 +327,9 @@ margin: 0px;
         margin-right: 0px !important;
         margin-left: 0px !important;
     }
+    .woocommerce.archive ul.products {
+        padding: 0px 15px !important;
+    }
     /* sigle product*/
     .single-product div.product .images, .single-product div.product .summary {
         width: 100%;
