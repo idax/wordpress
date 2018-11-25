@@ -139,9 +139,18 @@ $wp_customize->add_control('manufacturer_text', array(
 
 }
 
+
 //add
 add_action( 'customize_register', 'mls_settings' );
 ?>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+jQuery(document).ready( function() {
+	jQuery('.woocommerce ul.products li.product:nth-child(2n+1)').css('clear', '');
+})
+
+</script>
 
 
 

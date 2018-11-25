@@ -287,13 +287,19 @@ margin: 0px;
     font-size: 30px;
     margin-left: 10px;
 }
+
 @media screen and (max-width: 992px){
     .woocommerce ul.products li.product:nth-child(2n+1) {
-        clear: unset !important;
+        clear: initial !important;
     }
     .woocommerce ul.products li.product {
         padding-right: 0px !important;
         padding-left: 0px !important;
+        width: 0% ;
+    }
+
+    .woocommerce.archive ul.products {
+        padding: 0 !important;
     }
     
 }

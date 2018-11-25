@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying full width pages.
+ * The template for displaying the about page.
  *
- * Template Name: Full width
+ * Template Name: About Template
  *
  * @package WordPress
  * @subpackage Shop Isle
@@ -29,7 +29,7 @@ get_header(); ?>
 				<div class="row">
 
 					<div class="col-sm-10 col-sm-offset-1">
-						<h1 class="module-title font-alt"><?php the_title().' HELLO'; ?></h1>
+						<h1 class="module-title font-alt"><?php ?></h1>
 						<?php
 						/* Header description */
 
