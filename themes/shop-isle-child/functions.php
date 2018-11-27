@@ -72,7 +72,7 @@ function shop_isle_footer_copyright_and_socials() {
 	<!-- Footer end -->
 	<?php
 }
-/*Steven and Ida was here :)*/
+
 
 
 function mls_settings($wp_customize){
