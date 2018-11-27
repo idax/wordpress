@@ -290,7 +290,10 @@ margin: 0px;
 
 @media screen and (max-width: 992px){
     .woocommerce ul.products li.product:nth-child(2n+1) {
-
+        clear: unset !important;
+    }
+    .woocommerce ul.products li.product:nth-child(4n+1) {
+        clear: left !important;
     }
     .woocommerce ul.products li.product {
         padding-right: 0px !important;
