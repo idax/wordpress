@@ -29,7 +29,7 @@ get_header(); ?>
 				<div class="row">
 
 					<div class="col-sm-10 col-sm-offset-1">
-						<h1 class="module-title font-alt"><?php ?></h1>
+						
 						<?php
 						/* Header description */
 
@@ -52,12 +52,12 @@ get_header(); ?>
 			</div>
 		</section>
 		<!-- Header section end -->
-		<h1 class="module-title font-alt"><?php the_title(); ?></h1>
+		
 		<!-- Pricing start -->
 		<section class="module">
 			<div class="container">
 				<div class="row">
-
+				<h1 class="module-title font-alt"><?php the_title(); ?></h1>
 					<!-- Content column start -->
 					<div class="col-sm-12">
 					<?php
