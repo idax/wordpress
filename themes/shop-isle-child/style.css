@@ -251,13 +251,13 @@ padding: 20px;
 }
 #mc_embed_signup .button{
     border-radius: 0px !important;
-    background-color: #82a0ab !important;
+    background-color: #356374  !important;
     font-size: 16px !important;
-    border: 1px solid #82a0ab !important;
+    border: 1px solid #356374  !important;
 }
 #mc_embed_signup .button:hover{
     background-color: white !important;
-    color: #82a0ab;
+    color: #356374;
 }
 html .required {
     border-bottom: 1px darkgray solid !important;
@@ -268,7 +268,7 @@ html .required {
 .divider-d {
     border-top: 1px solid #eaeaea;
 }
-.textwidget>p>a:hover {color: #82a0ab;}
+.textwidget>p>a:hover {color: #356374;}
 
 #mc-embedded-subscribe-form>p, #mc_embed_signup_scroll>p {
 margin: 0px;
@@ -283,7 +283,7 @@ margin: 0px;
     font-size: 30px;
 }
 .mail{
-    color: #82a0ab !important;
+    color: #356374  !important;
     font-size: 30px;
     margin-left: 10px;
 }
