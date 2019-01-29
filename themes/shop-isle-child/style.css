@@ -116,7 +116,7 @@ ul.products li.product h2, ul.products li.product h3, .wccm-td div, .product .pr
 
 /*product beskrivelse*/
 .summary {
-    border-top: 0.2px solid;
+    border-top: 0.2px solid #8a8a8a;
     padding-top: 50px !important;
 }
 
@@ -206,7 +206,7 @@ padding: 20px;
 }
 #collaborators-title{
     margin-top: 0px;
-    border-top: 1px solid;
+    border-top: 1px solid #8a8a8a;
     padding-top: 50px;
 }
 #collaborator-content{
@@ -230,7 +230,7 @@ padding: 20px;
     column-gap: 2em;
     row-gap: 2em;
     grid-auto-rows: 1fr;
-    border-top: 1px solid;
+    border-top: 1px solid #8a8a8a;
     margin-top: 50px;
     padding-top: 50px;
 }
