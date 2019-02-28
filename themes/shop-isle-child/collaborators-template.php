@@ -71,38 +71,38 @@ get_header(); ?>
 					//do_action( 'shop_isle_content_top' );
 
 
-
-
-					$post_type = 'f_'.basename(get_permalink());
-					$coll_text_block = get_theme_mod( basename(get_permalink()).'_text_block');
-					$is_designer = ($post_type == 'f_designer');
+					
+					
+					$post_type = 'f_'.basename(get_permalink()); 
+					$coll_text_block = get_theme_mod( basename(get_permalink()).'_text_block'); 
+					$is_designer = ($post_type == 'f_designer');  
 					$posts = get_posts([
 						'post_type' => $post_type,
 						'post_status' => 'publish',
 						'numberposts' => -1,
 						'order'    => 'ASC',
 						'orderby'=>'menu_order'
-					  ]);
+					]);
+
+
+						
 					  echo '<p id="into-text">'.$coll_text_block.'</p>';
-					  echo '<div class="col-sm-12 collaborators-grid">';
+					  echo '<div class="collaborators-grid">';
 					  foreach($posts as $a_post) {
-						  $image = get_post(get_post_thumbnail_id($a_post));
-						  $image_url = $image->guid;
-						  $image_title = $image->post_title;
+						  $image = get_post(get_post_thumbnail_id($a_post)); 
+						  $image_url = $image->guid;						
+						  				
 						?>
 					
-						<div <?php if($is_designer) echo 'style="flex-direction: column;"' ?>>
+						<div <?php if($is_designer) echo 'style="flex-direction: column;"' ?>> 
 							<img class="images-pointer" src= <?php echo $image_url; ?> onclick="window.location.href='<?php echo get_post_permalink($a_post->ID) ?>'">
 
-							 <?php if($post_type == 'f_designer') { echo '<p>'.$image_title.'</p>'; } ?>
+							 <?php if($is_designer) echo '<p>'.$a_post->post_title.'</p>'; ?>
 					  	</div>
 					
 						  <?php
 					  };
 					  echo '</div>'
-
-
-
 
 
 					

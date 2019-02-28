@@ -10,24 +10,20 @@ function get_string_between($string, $start, $end){
 }
 
 
-function print_post_text($textCssId, $single_post) {
-	$content = get_string_between($single_post->post_content, "#TEASER START#", "#TEASER END#")." ".get_string_between($single_post->post_content, "#MAIN START#", "#MAIN END#");
-	?>
-	<div id="<?php echo $textCssId ?>">
-		<p > <?php echo $content ?> </p>		
-	</div>
-	<?php
+function get_post_content($post) {
+	return get_string_between($post->post_content, "#TEASER START#", "#TEASER END#")." ".get_string_between($post->post_content, "#MAIN START#", "#MAIN END#");
 }
 
 $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
 
 
 
-$all_products = get_posts(array( 'post_type' => 'product', 'posts_per_page' => -1 )); 	//Hent alle produkter
-$products = [];																			//Lav array som vi kan gemme de produkter vi egentlig vil vise
+$all_products = get_posts(array( 'post_type' => 'product', 'posts_per_page' => -1 )); 	
 
 $delimiterStart;
 $delimiterEnd;
+
+
 switch ($post->post_type) {
     case 'f_designer':
 		$delimiterStart = '¤designers¤';
@@ -46,13 +42,18 @@ switch ($post->post_type) {
 		$delimiterEnd = 'NOPE';
 }
 
-foreach($all_products as $m_product) {
-	$collaborators_on_product =  explode(',', get_string_between($m_product->post_content, $delimiterStart, $delimiterEnd));
-	if($post->post_title != '' && in_array($post->post_title, $collaborators_on_product)) {
-		array_push($products, $m_product);
-	}
+foreach($all_products as $m_product) { 
 	
+	$productCollsString = get_string_between($m_product->post_content, $delimiterStart, $delimiterEnd);
+	$productCollsArray = explode(',', $productCollsString);
+	$productIsMadeByThisCollaborator = in_array($post->post_title, $productCollsArray);
+	$collTitleIsNotEmpty = $post->post_title != '';
+	
+	if($productIsMadeByThisCollaborator && $collTitleIsNotEmpty) {
+		array_push($products, $m_product); 
+	}
 }
+
 
 ?>
 
@@ -62,16 +63,10 @@ foreach($all_products as $m_product) {
 		<img src=<?php echo $image; ?>>
 	</div>
 	<div class="col-sm-7 col-sm-pull-5 main-content"> 
-		 
-		 <p><?php echo print_post_text("collaborators-text", $post); ?></p> 
+		<div id="collaborators-text">
+			 <?php echo get_post_content($post) ?>	
+		</div>
 	</div>
-	
-
-	
-		
-	
-
-
 </div>
 
 <div class="product-grid col-sm-12">
@@ -87,7 +82,7 @@ foreach($all_products as $m_product) {
 		<?php
 		}
 		?>
-		</div>
+</div>
 
 
 

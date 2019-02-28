@@ -1,12 +1,10 @@
 <?php
 add_action( 'wp_enqueue_scripts', 'enqueue_child_theme_styles', PHP_INT_MAX);
-add_action( 'wp_enqueue_scripts', 'enqueue_child_theme_scripts', PHP_INT_MAX);
+
 function enqueue_child_theme_styles() {
   wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 }
-function enqueue_child_theme_scripts() {
-  wp_enqueue_script( 'signup-lp', get_template_directory_uri().'/js/signup-lp.js', array ( 'jquery' ), 1.12, true);
-}
+
 
 function woocommerce_breadcrumb() {}
 
@@ -99,6 +97,7 @@ function mls_settings($wp_customize){
 			'settings'   => 'designer_text_block',
 			'type' => 'textarea',
 	));
+
 
 			//  =============================
 	//  = Distributor                =

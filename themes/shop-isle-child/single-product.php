@@ -81,6 +81,17 @@ get_header( 'shop' );
 		<?php endwhile; // end of the loop. ?>
 
 <?php 
+
+
+/**
+  * Tager imod en $start og $end string, som indikerer hvorfra og til i $string at du vil have en substring.
+  *
+  * @param $string En string som du vil have et stykke af.
+  * @param $start En string som fortæller hvorfra i den ovenstående $string du vil have et stykke fra.
+  * @param $end En string som fortæller hvorfra i den ovenstående $string du vil have et stykke til.
+  *
+  * @return string
+  */
 function get_string_between($string, $start, $end){
 	$string = ' ' . $string;
 	$ini = strpos($string, $start);
@@ -90,43 +101,33 @@ function get_string_between($string, $start, $end){
 	return substr($string, $ini, $len);
 }
 
-function banner_printer($post_type_name, $delimiter1, $delimiter2, $imageCssId, $textCssId, $imageFirst, $displayReadMore, $product) {
+
+function banner_printer($post_type_name, $delimiter1, $delimiter2, $imageCssId, $textCssId, $product, $imageFirst = true, $displayReadMore = true) {
 
 	 $banner_posts = query_posts('post_type='.$post_type_name);
-	 $banner_category_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2));
+	 $banner_category_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2)); 
 	 ?>
 	 <div class="container-fluid banner">
 		<div class="row center-with-flex" >
 				<?php
 
-				if(!empty($banner_posts) && !empty($banner_category_names)) {
-					foreach ($banner_posts as $banner_post) {
-						foreach($banner_category_names as $banner_category_name) {
-							if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) {
-								if (has_post_thumbnail( $banner_post->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $banner_post->ID ), 'single-post-thumbnail' )[0]; } else { $image = ['no image :c']; }
+				if(!empty($banner_posts) && !empty($banner_category_names)) {	
+					foreach ($banner_posts as $banner_post) { 
+						foreach($banner_category_names as $banner_category_name) { 
+							if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) { 
+								if (has_post_thumbnail( $banner_post->ID ) ) { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $banner_post->ID ), 'single-post-thumbnail' )[0]; } else { $image = 'no image :c'; }
 				?>
 				<div id="posts-wrapper">
-				<?php
-					if($imageFirst) { ?>
-					<div class="col-sm-4">
+				<div class="col-sm-4 <?php if(!$imageFirst) echo 'col-sm-push-8'; ?>">
 						<img id="<?php echo $imageCssId ?>" src= <?php echo $image ?> >	
 					</div>
-					<div class="col-sm-8" id="<?php echo $textCssId ?>">	
-						<p > <?php echo get_string_between($banner_post->post_content, "#TEASER START#", "#TEASER END#") ?> </p>
+					<div class="col-sm-8 <?php if(!$imageFirst) echo 'col-sm-pull-4'; ?>" id="<?php echo $textCssId ?>">
+						<p> <?php echo get_string_between($banner_post->post_content, "#TEASER START#", "#TEASER END#") ?> </p>
 						<?php if($displayReadMore == true) { ?> <button class="btn btn-lg read-more" type="button" onclick="window.location.href='<?php echo get_post_permalink($banner_post->ID) ?>'">READ MORE</button>  <?php } ?>
 					</div>
-			<?php	} else { ?>
-				<div class="col-sm-4 col-sm-push-8">
-						<img id="<?php echo $imageCssId ?>" src= <?php echo $image ?> >	
-					</div>
-					<div class="col-sm-8 col-sm-pull-4" id="<?php echo $textCssId ?>">	
-						<p > <?php echo get_string_between($banner_post->post_content, "#TEASER START#", "#TEASER END#") ?> </p>
-						<?php if($displayReadMore == true) { ?> <button class="btn btn-lg read-more" type="button" onclick="window.location.href='<?php echo get_post_permalink($banner_post->ID) ?>'">READ MORE</button>  <?php } ?>
-					</div>
-			<?php	}
-				?>
 				</div>
 				<?php
+							break;
 							}
 						}
 					}
@@ -134,50 +135,54 @@ function banner_printer($post_type_name, $delimiter1, $delimiter2, $imageCssId, 
 					echo 'no results :(';
 				}
 				?>
-				<div></div>
-			
 		</div>
 	</div>
 	<?php
 }
 
-function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2, $displayReadMore, $product)
+function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2, $product)
 {
-    
-    $banner_posts          = query_posts('post_type=' . $post_type_name);
-    $banner_category_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2));
+    $spec_posts = query_posts('post_type=' . $post_type_name);
+    $product_spec_names = explode(',', get_string_between($product->description, $delimiter1, $delimiter2));
 ?>
    <div class="container-fluid banner">
        <div class="row center-with-flex" id="specification" style>
 <?php
-    if (!empty($banner_posts) && !empty($banner_category_names)) {
-        
-        foreach ($banner_posts as $banner_post) {
-            foreach ($banner_category_names as $banner_category_name) {
-                if (strcasecmp($banner_category_name, $banner_post->post_title) === 0) {
+    if (!empty($spec_posts) && !empty($product_spec_names)) {
+        foreach ($spec_posts as $spec_post) {
+            foreach ($product_spec_names as $product_spec_name) {
+                if (strcasecmp($product_spec_name, $spec_post->post_title) === 0) {
+
+					
 					$categories = [];
 					foreach(get_the_terms( $product->ID, 'product_cat' ) as $category) {
 						array_push($categories, $category->name); 
 					}
-					$designer = explode(',', get_string_between($product->description, '¤designers¤', '¤/designers¤'))[0]; if(empty($designer)) $designer = "unknown :(";
-?>		
+					//------------------
+
+					$designers = explode(',', get_string_between($product->description, '¤designers¤', '¤/designers¤'));
+					if(empty($designers)) $designers = ["unknown :("];
+
+?>					
 					<table style="width: 40%; border-bottom: 0px;">
 						<tr>
 							<td>Designer:</td>
-							<td><?php echo $designer; ?></td>
+							<td><?php echo implode(', ', $designers); ?></td>
 						</tr>
 						<tr>
 							<td>Type:</td>
-							<td><?php echo Join(", ", $categories); ?></td>
+							<td><?php echo implode(", ", $categories); ?></td>
 						</tr>
 						<tr>
 							<td>Model:</td>
 							<td><?php echo $product->name; ?></td>
 						</tr>
-						<tr style="border-bottom: 1px solid #dddddd;"> <td style="border-bottom: 0px;" valign="top">Measurements:</td>
-						<td style="border-bottom: 0px;"> <table style="border-bottom: 0px !important; margin: 0px !important;">
+						<tr style="border-bottom: 1px solid #dddddd;">
+							<td style="border-bottom: 0px;" valign="top">Measurements:</td>
+							<td style="border-bottom: 0px;"> 
+								<table style="border-bottom: 0px !important; margin: 0px !important;">
 <?php					
-					$spec_list = explode(",", $banner_post->post_content);
+					$spec_list = explode(",", $spec_post->post_content);
 					$counter = 0;
                     foreach ($spec_list as $spec_item) {
 						$counter++;
@@ -186,20 +191,22 @@ function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2
 						$lastitem = $counter == count($spec_list);
 ?>
                         <?php if(strpos($spec_item, ':') !== false) { ?>
-						<tr>
-							<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_name; ?></td>
-							<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_data; ?></td>
-						</tr>
-						<?php } else { ?>
-						<tr>
-							<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_item; ?></td>
-						</tr>
+									<tr>
+										<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_name; ?></td>
+										<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_data; ?></td>
+									</tr>
+									<?php } else { ?>
+									<tr>
+										<td <?php if($lastitem == 1) echo 'style="border-bottom: 0px !important;"'; ?>><?php echo $spec_item; ?></td>
+									</tr>
 <?php
 						}	
-				}
-					
-                    echo '</table> </td> </tr> </table>';
-                }
+					}	?>
+                    			</table> 
+							</td>
+						</tr>
+					</table>
+        <?php	}
             }
         }
     } else {
@@ -211,10 +218,10 @@ function specifications_banner_printer($post_type_name, $delimiter1, $delimiter2
    <?php
 }
 
-specifications_banner_printer("f_specifications", "¤specifications¤", "¤/specifications¤", "text-specific", $product);
-banner_printer("f_designer", 		"¤designers¤", 		"¤/designers¤", 	"designer", 	"text-design", 		true, 	true,	$product);
-banner_printer("f_manufacturer", 	"¤manufacturers¤", 	"¤/manufacturers¤", "manufacturer", "text-manufac", 	false, 	true, 	$product);
-banner_printer("f_distributor", 	"¤distributors¤", 	"¤/distributors¤", 	"distributor", 	"text-distri", 		true, 	true, 	$product);
+specifications_banner_printer("f_specifications", "¤specifications¤", "¤/specifications¤", $product);
+banner_printer("f_designer", 		"¤designers¤", 		"¤/designers¤", 	"designer", 	"text-design", $product);
+banner_printer("f_manufacturer", 	"¤manufacturers¤", 	"¤/manufacturers¤", "manufacturer", "text-manufac",	$product, false);
+banner_printer("f_distributor", 	"¤distributors¤", 	"¤/distributors¤", 	"distributor", 	"text-distri", $product);
 
 
 ?>
